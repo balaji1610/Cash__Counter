@@ -34,3 +34,9 @@
   color: #ffffff;
   font-size: 25px;
 }
+
+.dateTime__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

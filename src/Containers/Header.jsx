@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-
+import CurrentDate from "./CurrentDate";
 export default function Header() {
   return (
     <div>
@@ -33,7 +33,10 @@ export default function Header() {
             </div>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <h1>Date Time</h1>
+            <div className="dateTime__flex">
+              {" "}
+              <CurrentDate />
+            </div>
           </Grid>
           <Grid item xs={12} sm={1}></Grid>
         </Grid>

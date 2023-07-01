@@ -3,3 +3,8 @@
 h1 {
   font-family: "PT Serif", serif;
 }
+
+.Font__CurrentDat {
+  font-size: 32px;
+  font-family: "Pacifico", cursive;
+}
