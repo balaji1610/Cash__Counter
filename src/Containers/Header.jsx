@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import CurrentDate from "./CurrentDate";
-
+import DividerButton from "./DividerButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
 export default function Header() {
   const mobile = useMediaQuery("(min-width:600px)");
@@ -51,6 +51,9 @@ export default function Header() {
           </Grid>
           <Grid item xs={12} sm={1}></Grid>
         </Grid>
+      </div>
+      <div>
+        <DividerButton />
       </div>
     </div>
   );

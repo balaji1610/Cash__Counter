@@ -1,3 +1,3 @@
 export default function CashCounterPage() {
-  return <div></div>;
+  return <div>cash counter</div>;
 }
