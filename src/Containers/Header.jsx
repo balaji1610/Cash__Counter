@@ -1,45 +1,43 @@
-// import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
+
 export default function Header() {
   return (
     <div>
-      {" "}
-      <Grid container spacing={3}>
-        {/*Create items with different breakpoints */}
-        {/*For example,This item will be 12 units wide on extra small screens */}
+      <div className="Parent__Header__Layout">
         <Grid
-          item
-          xs={12}
-          style={{
-            backgroundColor: "red",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          style={{ height: "15vh" }}
         >
-          xs=12
+          <Grid item xs={12} sm={3}></Grid>
+
+          <Grid item xs={12} sm={4}>
+            <div className="header_title_Layout">
+              <div style={{ width: "90px", paddingTop: "20px" }}>
+                <span>
+                  {" "}
+                  <img
+                    width="76"
+                    height="76"
+                    src="https://img.icons8.com/color/96/rupee--v1.png"
+                    alt="rupee--v1"
+                  />
+                </span>
+              </div>
+
+              <div className="title___style">
+                <h1>Cash Counter</h1>
+              </div>
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <h1>Date Time</h1>
+          </Grid>
+          <Grid item xs={12} sm={1}></Grid>
         </Grid>
-        {/*This item will be 12 units on extra small screens */}
-        {/*But will be 6 units on small screens */}
-        <Grid item xs={12} sm={6}>
-          xs=12 sm=6
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          xs=12 sm=6
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          xs=6 sm=3
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          xs=6 sm=3
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          xs=6 sm=3
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          xs=6 sm=3
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 }

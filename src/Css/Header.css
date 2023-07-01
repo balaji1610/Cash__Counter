@@ -1,0 +1,36 @@
+.Parent__Header__Layout {
+  height: 16vh;
+  background: linear-gradient(
+    101deg,
+    hsla(239, 100%, 67%, 1) 0%,
+    hsla(187, 100%, 89%, 1) 100%
+  );
+}
+
+.header_title {
+  background-color: blue;
+
+  height: 20px;
+}
+.header__dateTime {
+  background-color: rgb(35, 175, 124);
+
+  height: 20px;
+}
+.header_title_Layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.header__dateTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: rgb(255, 0, 81);
+  height: 20px;
+}
+
+.title___style {
+  color: #ffffff;
+  font-size: 25px;
+}
