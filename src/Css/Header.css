@@ -7,6 +7,14 @@
   );
 }
 
+.mobile__Parent__Header__Layout {
+  height: 22vh;
+  background: linear-gradient(
+    101deg,
+    hsla(239, 100%, 67%, 1) 0%,
+    hsla(187, 100%, 89%, 1) 100%
+  );
+}
 .header_title {
   background-color: blue;
 
@@ -34,9 +42,19 @@
   color: #ffffff;
   font-size: 25px;
 }
+.Mobile__title___style {
+  color: #ffffff;
+  font-size: 20px;
+}
 
 .dateTime__flex {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.Mobile__dateTime__flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

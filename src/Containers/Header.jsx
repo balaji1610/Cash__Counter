@@ -1,9 +1,16 @@
 import { Grid } from "@mui/material";
 import CurrentDate from "./CurrentDate";
+
+import useMediaQuery from "@mui/material/useMediaQuery";
 export default function Header() {
+  const mobile = useMediaQuery("(min-width:600px)");
   return (
     <div>
-      <div className="Parent__Header__Layout">
+      <div
+        className={
+          mobile ? "Parent__Header__Layout" : "mobile__Parent__Header__Layout"
+        }
+      >
         <Grid
           container
           direction="row"
@@ -27,13 +34,17 @@ export default function Header() {
                 </span>
               </div>
 
-              <div className="title___style">
+              <div
+                className={mobile ? "title___style" : "Mobile__title___style"}
+              >
                 <h1>Cash Counter</h1>
               </div>
             </div>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <div className="dateTime__flex">
+            <div
+              className={mobile ? "dateTime__flex" : "Mobile__dateTime__flex"}
+            >
               {" "}
               <CurrentDate />
             </div>
