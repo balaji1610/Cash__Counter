@@ -4,11 +4,203 @@ import Input__Card from "../Containers/Input__Card";
 import InputField from "../Reusable_compoents/InputField";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Button } from "@mui/material";
+
+import { useImmer } from "use-immer";
+import { useState } from "react";
 export default function CashCounterPage() {
   const mobile = useMediaQuery("(min-width:600px)");
-  const handleNumberChange = (e, arug) => {
-    console.log(e.target.value, arug);
+  const CashCounter_Payload = {
+    notes: {
+      fivehundered: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      twohundered: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      onehundered: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      fifty: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      twenty: {
+        numberofnotes: 0,
+        value: 0,
+      },
+    },
+    coins: {
+      ten: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      five: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      two: {
+        numberofnotes: 0,
+        value: 0,
+      },
+      one: {
+        numberofnotes: 0,
+        value: 0,
+      },
+    },
+    total: {
+      sumoftotal: 0,
+      notes: 0,
+      coins: 0,
+    },
   };
+  const [nestedObjct, setNestedObject] = useImmer(CashCounter_Payload);
+
+  const handleNumberChange = (e, argument) => {
+    const inputValue = Number(e.target.value);
+    const insertObject = {
+      //Notes
+      500: () => {
+        setNestedObject((draft) => {
+          draft.notes.fivehundered.numberofnotes = inputValue;
+          draft.notes.fivehundered.value = inputValue * 500;
+        });
+      },
+      200: () => {
+        setNestedObject((draft) => {
+          draft.notes.twohundered.numberofnotes = inputValue;
+          draft.notes.twohundered.value = inputValue * 200;
+        });
+      },
+      100: () => {
+        setNestedObject((draft) => {
+          draft.notes.onehundered.numberofnotes = inputValue;
+          draft.notes.onehundered.value = inputValue * 100;
+        });
+      },
+      50: () => {
+        setNestedObject((draft) => {
+          draft.notes.fifty.numberofnotes = inputValue;
+          draft.notes.fifty.value = inputValue * 50;
+        });
+      },
+      20: () => {
+        setNestedObject((draft) => {
+          draft.notes.twenty.numberofnotes = inputValue;
+          draft.notes.twenty.value = inputValue * 20;
+        });
+      },
+      //Coins
+      10: () => {
+        setNestedObject((draft) => {
+          draft.coins.ten.numberofnotes = inputValue;
+          draft.coins.ten.value = inputValue * 10;
+        });
+      },
+      5: () => {
+        setNestedObject((draft) => {
+          draft.coins.five.numberofnotes = inputValue;
+          draft.coins.five.value = inputValue * 5;
+        });
+      },
+      2: () => {
+        setNestedObject((draft) => {
+          draft.coins.two.numberofnotes = inputValue;
+          draft.coins.two.value = inputValue * 2;
+        });
+      },
+      1: () => {
+        setNestedObject((draft) => {
+          draft.coins.one.numberofnotes = inputValue;
+          draft.coins.one.value = inputValue * 1;
+        });
+      },
+    };
+
+    //TotalSum
+
+    return insertObject[argument]();
+  };
+
+  const handleSubmit = () => {
+    //All currency value
+    const fivehundered = nestedObjct.notes.fivehundered.value;
+    const twohundered = nestedObjct.notes.twohundered.value;
+    const onehundered = nestedObjct.notes.onehundered.value;
+    const fifty = nestedObjct.notes.fifty.value;
+    const twenty = nestedObjct.notes.twenty.value;
+    const ten = nestedObjct.coins.ten.value;
+    const five = nestedObjct.coins.five.value;
+    const two = nestedObjct.coins.two.value;
+    const one = nestedObjct.coins.one.value;
+
+    //Only Notes
+
+    const Note_fivehundered = nestedObjct.notes.fivehundered.numberofnotes;
+    const Note_twohundered = nestedObjct.notes.twohundered.numberofnotes;
+
+    const Note_onehundered = nestedObjct.notes.onehundered.numberofnotes;
+
+    const Note_fifty = nestedObjct.notes.fifty.numberofnotes;
+    const Note_twenty = nestedObjct.notes.twenty.numberofnotes;
+    //coins
+    const Coin_Ten = nestedObjct.coins.ten.numberofnotes;
+    const Coin_Five = nestedObjct.coins.five.numberofnotes;
+    const Coin_Two = nestedObjct.coins.two.numberofnotes;
+    const Coin_One = nestedObjct.coins.one.numberofnotes;
+
+    //Array
+    const ArrayofTotalSum = [
+      fivehundered,
+      twohundered,
+      onehundered,
+      fifty,
+      twenty,
+      ten,
+      five,
+      two,
+      one,
+    ];
+
+    const ArrayNumberofNotes = [
+      Note_fivehundered,
+      Note_twohundered,
+      Note_onehundered,
+      Note_fifty,
+      Note_twenty,
+    ];
+
+    console.log(ArrayNumberofNotes, "ArrayNumberofNotes");
+    const ArrayNumberofCoins = [Coin_Ten, Coin_Five, Coin_Two, Coin_One];
+
+    //operations
+    const SumofArrayofTotalSum = ArrayofTotalSum.reduce((a, b) => {
+      return a + b;
+    }, 0);
+
+    const SumofArrayNumberofNotes = ArrayNumberofNotes.reduce((a, b) => {
+      return a + b;
+    }, 0);
+
+    const SumofArrayNumberofCoins = ArrayNumberofCoins.reduce((a, b) => {
+      return a + b;
+    }, 0);
+
+    {
+      /*  //React: Expected an assignment or function call and instead saw an expression implentet self exeuting fn */
+    }
+
+    (() => {
+      setNestedObject((draft) => {
+        draft.total.sumoftotal = SumofArrayofTotalSum;
+        draft.total.notes = SumofArrayNumberofNotes;
+        draft.total.coins = SumofArrayNumberofCoins;
+      });
+    })();
+  };
+  console.log(nestedObjct, "nestedObjct");
   return (
     <div>
       <ImageSwitch />
@@ -32,41 +224,56 @@ export default function CashCounterPage() {
                 <Input__Card
                   label="500"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 500)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 500)}
+                      value={nestedObjct.notes.fivehundered.numberofnotes}
+                    />
                   }
-                  getvalue="500"
+                  getvalue={nestedObjct.notes.fivehundered.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="200"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 200)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 200)}
+                      value={nestedObjct.notes.twohundered.numberofnotes}
+                    />
                   }
-                  getvalue="200"
+                  getvalue={nestedObjct.notes.twohundered.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="100"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 100)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 100)}
+                      value={nestedObjct.notes.onehundered.numberofnotes}
+                    />
                   }
-                  getvalue="100"
+                  getvalue={nestedObjct.notes.onehundered.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="50"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 50)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 50)}
+                      value={nestedObjct.notes.fifty.numberofnotes}
+                    />
                   }
-                  getvalue="50"
+                  getvalue={nestedObjct.notes.fifty.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="20"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 20)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 20)}
+                      value={nestedObjct.notes.twenty.numberofnotes}
+                    />
                   }
-                  getvalue="20"
+                  getvalue={nestedObjct.notes.twenty.value}
                 />
               </div>
             </Grid>
@@ -83,33 +290,45 @@ export default function CashCounterPage() {
                 <Input__Card
                   label="10"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 10)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 10)}
+                      value={nestedObjct.coins.ten.numberofnotes}
+                    />
                   }
-                  getvalue="10"
+                  getvalue={nestedObjct.coins.ten.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="5"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 5)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 5)}
+                      value={nestedObjct.coins.five.numberofnotes}
+                    />
                   }
-                  getvalue="5"
+                  getvalue={nestedObjct.coins.five.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="2"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 2)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 2)}
+                      value={nestedObjct.coins.two.numberofnotes}
+                    />
                   }
-                  getvalue="2"
+                  getvalue={nestedObjct.coins.two.value}
                 />
                 <div className="spacing"></div>
                 <Input__Card
                   label="1"
                   inputField={
-                    <InputField onChange={(e) => handleNumberChange(e, 1)} />
+                    <InputField
+                      onChange={(e) => handleNumberChange(e, 1)}
+                      value={nestedObjct.coins.one.numberofnotes}
+                    />
                   }
-                  getvalue="1"
+                  getvalue={nestedObjct.coins.one.value}
                 />
               </div>
             </Grid>
@@ -119,7 +338,11 @@ export default function CashCounterPage() {
             <Grid item xs={12}>
               <div className="Submit__clear__btn_layout">
                 <div>
-                  <Button variant="contained" color="primary">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </Button>
                 </div>
@@ -161,7 +384,7 @@ export default function CashCounterPage() {
                     />
                   </div>
                   <div>
-                    <h1>100</h1>
+                    <h1>{nestedObjct.total.notes}</h1>
                   </div>
                 </div>
               </div>
@@ -188,7 +411,7 @@ export default function CashCounterPage() {
                     />
                   </div>
                   <div>
-                    <h1>100000000</h1>
+                    <h1>{nestedObjct.total.sumoftotal}</h1>
                   </div>
                 </div>
               </div>
@@ -215,7 +438,7 @@ export default function CashCounterPage() {
                     />
                   </div>
                   <div>
-                    <h1>100</h1>
+                    <h1>{nestedObjct.total.coins}</h1>
                   </div>
                 </div>
               </div>
