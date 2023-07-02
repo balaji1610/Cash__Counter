@@ -163,6 +163,19 @@ export default function CashCounterPage() {
               </div>
             </Grid>
           </Grid>
+
+          <Grid container xs={12} direction="row" justifyContent="center">
+            <Grid item>
+              <h1
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Eleven Lakh Seventy Two Thousand Eight Hundred And Twenty Eight
+                Ruppess Only <span style={{ color: "red" }}>! ! !</span>
+              </h1>
+            </Grid>
+          </Grid> 
         </div>
       </div>
     </div>
