@@ -134,7 +134,7 @@ export default function CashCounterPage() {
           </Grid>
 
           {/* Total Sum */}
-          <Grid container direction="row" spacing={5}>
+          <Grid container direction="row" spacing={1}>
             <Grid item xs={12} sm={2}>
               1
             </Grid>
@@ -142,13 +142,13 @@ export default function CashCounterPage() {
             <Grid item xs={12} sm={3}>
               <div className="Total__Notes">
                 <div>
-                  <h1
+                  <h2
                     style={{
                       textAlign: "center",
                     }}
                   >
                     Total Notes
-                  </h1>
+                  </h2>
                 </div>
                 <div className="total_notes_flex">
                   <div>
@@ -196,13 +196,13 @@ export default function CashCounterPage() {
             <Grid item xs={12} sm={3}>
               <div className="Total__Coins">
                 <div>
-                  <h1
+                  <h2
                     style={{
                       textAlign: "center",
                     }}
                   >
                     Total Coins
-                  </h1>
+                  </h2>
                 </div>
                 <div className="total_coins_flex">
                   <div>
