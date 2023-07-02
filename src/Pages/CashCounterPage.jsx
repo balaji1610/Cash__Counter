@@ -18,7 +18,7 @@ export default function CashCounterPage() {
             </Grid>{" "}
             {/* Notes */}
             <Grid item xs={12} sm={5}>
-              <div style={{ border: "2px solid red", height: "100vh" }}>
+              <div className="Notes__Module__layout">
                 <div className="spacing"></div>
                 <Input__Card
                   label="500"
@@ -61,8 +61,42 @@ export default function CashCounterPage() {
                 />
               </div>
             </Grid>
+            {/* Coins */}
             <Grid item xs={12} sm={5}>
-              <div style={{ border: "2px solid red", height: "100vh" }}>03</div>
+              <div className="Coins__Module__layout">
+                <div className="spacing"></div>
+                <Input__Card
+                  label="10"
+                  inputField={
+                    <InputField onChange={(e) => handleNumberChange(e, 10)} />
+                  }
+                  getvalue="10"
+                />
+                <div className="spacing"></div>
+                <Input__Card
+                  label="5"
+                  inputField={
+                    <InputField onChange={(e) => handleNumberChange(e, 5)} />
+                  }
+                  getvalue="5"
+                />
+                <div className="spacing"></div>
+                <Input__Card
+                  label="2"
+                  inputField={
+                    <InputField onChange={(e) => handleNumberChange(e, 2)} />
+                  }
+                  getvalue="2"
+                />
+                <div className="spacing"></div>
+                <Input__Card
+                  label="1"
+                  inputField={
+                    <InputField onChange={(e) => handleNumberChange(e, 1)} />
+                  }
+                  getvalue="1"
+                />
+              </div>
             </Grid>
             <Grid item xs={12} sm={1}>
               04

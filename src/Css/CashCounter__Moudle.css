@@ -17,3 +17,13 @@
   height: 50px;
   display: inline-block;
 }
+
+.Notes__Module__layout {
+  border: 1px solid red;
+  height: 75vh;
+}
+
+.Coins__Module__layout {
+  border: 1px solid red;
+  height: 75vh;
+}
