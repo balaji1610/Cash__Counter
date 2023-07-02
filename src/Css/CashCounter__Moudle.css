@@ -22,8 +22,18 @@
   border: 1px solid red;
   height: 75vh;
 }
-
+/* height: 566px; */
 .Coins__Module__layout {
   border: 1px solid red;
   height: 75vh;
+}
+
+.Mobile__Notes__Module__layout {
+  border: 1px solid red;
+  height: 566px;
+}
+
+.Mobile__Coins__Module__layout {
+  border: 1px solid red;
+  height: 480px;
 }

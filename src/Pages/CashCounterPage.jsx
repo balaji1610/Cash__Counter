@@ -2,7 +2,9 @@ import ImageSwitch from "../Containers/ImageSwitch";
 import { Grid } from "@mui/material";
 import Input__Card from "../Containers/Input__Card";
 import InputField from "../Reusable_compoents/InputField";
+import useMediaQuery from "@mui/material/useMediaQuery";
 export default function CashCounterPage() {
+  const mobile = useMediaQuery("(min-width:600px)");
   const handleNumberChange = (e, arug) => {
     console.log(e.target.value, arug);
   };
@@ -18,7 +20,13 @@ export default function CashCounterPage() {
             </Grid>{" "}
             {/* Notes */}
             <Grid item xs={12} sm={5}>
-              <div className="Notes__Module__layout">
+              <div
+                className={
+                  mobile
+                    ? "Notes__Module__layout"
+                    : "Mobile__Notes__Module__layout"
+                }
+              >
                 <div className="spacing"></div>
                 <Input__Card
                   label="500"
@@ -63,7 +71,13 @@ export default function CashCounterPage() {
             </Grid>
             {/* Coins */}
             <Grid item xs={12} sm={5}>
-              <div className="Coins__Module__layout">
+              <div
+                className={
+                  mobile
+                    ? "Coins__Module__layout"
+                    : "Mobile__Coins__Module__layout"
+                }
+              >
                 <div className="spacing"></div>
                 <Input__Card
                   label="10"
