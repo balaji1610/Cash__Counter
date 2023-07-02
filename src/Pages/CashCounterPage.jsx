@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import Input__Card from "../Containers/Input__Card";
 import InputField from "../Reusable_compoents/InputField";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Button } from "@mui/material";
 export default function CashCounterPage() {
   const mobile = useMediaQuery("(min-width:600px)");
   const handleNumberChange = (e, arug) => {
@@ -115,6 +116,21 @@ export default function CashCounterPage() {
             <Grid item xs={12} sm={1}>
               04
             </Grid>
+            <Grid item xs={12}>
+              <div className="Submit__clear__btn_layout">
+                <div>
+                  <Button variant="contained" color="primary">
+                    Submit
+                  </Button>
+                </div>
+                <div>
+                  {" "}
+                  <Button variant="contained" color="primary">
+                    Clear
+                  </Button>
+                </div>
+              </div>
+            </Grid>{" "}
           </Grid>
         </div>
       </div>

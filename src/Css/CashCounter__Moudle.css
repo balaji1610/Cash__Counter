@@ -20,12 +20,12 @@
 
 .Notes__Module__layout {
   border: 1px solid red;
-  height: 75vh;
+  height: 600px;
 }
 /* height: 566px; */
 .Coins__Module__layout {
   border: 1px solid red;
-  height: 75vh;
+  height: 600px;
 }
 
 .Mobile__Notes__Module__layout {
@@ -36,4 +36,12 @@
 .Mobile__Coins__Module__layout {
   border: 1px solid red;
   height: 480px;
+}
+
+.Submit__clear__btn_layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
 }
