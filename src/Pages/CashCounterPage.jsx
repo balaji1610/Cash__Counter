@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 
 import { useImmer } from "use-immer";
 import { useState } from "react";
+const numWords = require("num-words");
 export default function CashCounterPage() {
   const mobile = useMediaQuery("(min-width:600px)");
   const CashCounter_Payload = {
@@ -201,6 +202,8 @@ export default function CashCounterPage() {
     })();
   };
   console.log(nestedObjct, "nestedObjct");
+  const amountInWords = numWords(nestedObjct.total.sumoftotal);
+
   return (
     <div>
       <ImageSwitch />
@@ -411,7 +414,7 @@ export default function CashCounterPage() {
                     />
                   </div>
                   <div>
-                    <h1>{nestedObjct.total.sumoftotal}</h1>
+                    <h1>{nestedObjct.total.sumoftotal.toLocaleString()}</h1>
                   </div>
                 </div>
               </div>
@@ -452,8 +455,8 @@ export default function CashCounterPage() {
                   textAlign: "center",
                 }}
               >
-                Eleven Lakh Seventy Two Thousand Eight Hundred And Twenty Eight
-                Ruppess Only <span style={{ color: "red" }}>! ! !</span>
+                {amountInWords} Ruppes Only{" "}
+                <span style={{ color: "red" }}>! ! !</span>
               </h1>
             </Grid>
           </Grid>
