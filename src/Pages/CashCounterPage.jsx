@@ -1,3 +1,8 @@
+import ImageSwitch from "../Containers/ImageSwitch";
 export default function CashCounterPage() {
-  return <div>cash counter</div>;
+  return (
+    <div>
+      <ImageSwitch />
+    </div>
+  );
 }
