@@ -132,6 +132,37 @@ export default function CashCounterPage() {
               </div>
             </Grid>{" "}
           </Grid>
+
+          {/* Total Sum */}
+          <Grid container xs={12} direction="row" justifyContent="center">
+            <Grid item>
+              <div className="Total__sum__Card">
+                <div>
+                  <h1
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    Total Amount
+                  </h1>
+                </div>
+                <div className="total_sum_flex">
+                  <div>
+                    {" "}
+                    <img
+                      width="45"
+                      height="45"
+                      src="https://img.icons8.com/material-sharp/48/rupee.png"
+                      alt="rupee"
+                    />
+                  </div>
+                  <div>
+                    <h1>100000000</h1>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
         </div>
       </div>
     </div>

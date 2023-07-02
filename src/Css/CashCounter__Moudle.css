@@ -45,3 +45,17 @@
   align-items: center;
   height: 10vh;
 }
+.Total__sum__Card {
+  border: 1px solid red;
+  width: 38vh;
+  height: 23vh;
+  border-radius: 25px;
+  background-color: #bdbdbd;
+}
+.total_sum_flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+}
