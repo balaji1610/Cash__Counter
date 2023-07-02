@@ -134,8 +134,39 @@ export default function CashCounterPage() {
           </Grid>
 
           {/* Total Sum */}
-          <Grid container xs={12} direction="row" justifyContent="center">
-            <Grid item>
+          <Grid container direction="row" spacing={5}>
+            <Grid item xs={12} sm={2}>
+              1
+            </Grid>
+
+            <Grid item xs={12} sm={3}>
+              <div className="Total__Notes">
+                <div>
+                  <h1
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    Total Notes
+                  </h1>
+                </div>
+                <div className="total_notes_flex">
+                  <div>
+                    {" "}
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/fluency/48/money-bag-rupee.png"
+                      alt="money-bag-rupee"
+                    />
+                  </div>
+                  <div>
+                    <h1>100</h1>
+                  </div>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={3}>
               <div className="Total__sum__Card">
                 <div>
                   <h1
@@ -162,6 +193,33 @@ export default function CashCounterPage() {
                 </div>
               </div>
             </Grid>
+            <Grid item xs={12} sm={3}>
+              <div className="Total__Coins">
+                <div>
+                  <h1
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
+                    Total Coins
+                  </h1>
+                </div>
+                <div className="total_coins_flex">
+                  <div>
+                    {" "}
+                    <img
+                      width="48"
+                      height="48"
+                      src="https://img.icons8.com/color/48/coins.png"
+                      alt="coins"
+                    />
+                  </div>
+                  <div>
+                    <h1>100</h1>
+                  </div>
+                </div>
+              </div>
+            </Grid>
           </Grid>
 
           <Grid container xs={12} direction="row" justifyContent="center">
@@ -175,7 +233,7 @@ export default function CashCounterPage() {
                 Ruppess Only <span style={{ color: "red" }}>! ! !</span>
               </h1>
             </Grid>
-          </Grid> 
+          </Grid>
         </div>
       </div>
     </div>
