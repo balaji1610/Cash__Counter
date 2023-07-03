@@ -1,10 +1,10 @@
 .Parent__ImageSwitch__Layout {
-  border: 1px solid #ffffff;
+  border: 5px solid #ffffff;
   width: 38vh;
   height: 23vh;
   margin-top: 38px;
   border-radius: 25px;
-  background-color: #bdadad;
+  background-color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: center;

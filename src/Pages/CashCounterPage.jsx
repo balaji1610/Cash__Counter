@@ -83,7 +83,7 @@ export default function CashCounterPage() {
   const DefaultImage = {
     ImageURL: imgeListAll[0],
     alt: "Defalut Indian Symbol",
-    ClassName:Image_ClassNames[0],
+    ClassName: Image_ClassNames[0],
   };
   const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
 
@@ -102,7 +102,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[1],
           alt: "500 Ruppee",
-          ClassName:Image_ClassNames[1],
+          ClassName: Image_ClassNames[1],
         });
       },
       200: () => {
@@ -138,7 +138,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[4],
           alt: "50 Ruppee",
-          ClassName:Image_ClassNames[1],
+          ClassName: Image_ClassNames[1],
         });
       },
       20: () => {
@@ -164,7 +164,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: CoinsImage[0],
           alt: "10 Coin",
-          ClassName:Image_ClassNames[2],
+          ClassName: Image_ClassNames[2],
         });
       },
       5: () => {
@@ -291,14 +291,14 @@ export default function CashCounterPage() {
   const amountInWords = numWords(nestedObjct.total.sumoftotal);
 
   return (
-    <div>
+    <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
 
       <div>
         <div>
           <Grid container>
             <Grid item xs={12} sm={1}>
-              01
+     
             </Grid>{" "}
             {/* Notes */}
             <Grid item xs={12} sm={5}>
@@ -422,7 +422,7 @@ export default function CashCounterPage() {
               </div>
             </Grid>
             <Grid item xs={12} sm={1}>
-              04
+              
             </Grid>
             <Grid item xs={12}>
               <div className="Submit__clear__btn_layout">
@@ -448,7 +448,7 @@ export default function CashCounterPage() {
           {/* Total Sum */}
           <Grid container direction="row" spacing={1}>
             <Grid item xs={12} sm={2}>
-              1
+         
             </Grid>
 
             <Grid item xs={12} sm={3}>
