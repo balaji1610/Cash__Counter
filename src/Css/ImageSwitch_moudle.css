@@ -5,11 +5,13 @@
   margin-top: 38px;
   border-radius: 25px;
   background-color: #bdadad;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.ImageList__style {
+.ImageList_Notes__style {
   width: 240px;
   height: 109px;
-  margin-top: 28px;
-  margin-left: 14px;
 }

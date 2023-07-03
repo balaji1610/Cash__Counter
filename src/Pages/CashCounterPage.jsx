@@ -72,9 +72,17 @@ export default function CashCounterPage() {
     "https://www.shutterstock.com/image-vector/indian-shiny-ten-rupee-coin-260nw-1413721379.jpg",
     "https://5.imimg.com/data5/SELLER/Default/2022/2/VX/HQ/JP/143056958/old-five-rupee-coin.jpg",
     "https://en.numista.com/catalogue/photos/inde/3205-original.jpg",
-    "https://en.numista.com/catalogue/photos/inde/3165-original.jpg"
+    "https://en.numista.com/catalogue/photos/inde/3165-original.jpg",
   ];
-  const [image, setImage] = useState(imgeListAll[0]);
+
+  const DefaultImage = {
+    ImageURL: imgeListAll[0],
+    alt: "Defalut Indian Symbol",
+    ClassName: "ImageList_Notes__style",
+  };
+  const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
+
+  console.log(OnchangeImage, "--------->OnchangeImage");
   const handleNumberChange = (e, argument) => {
     const inputValue = Number(e.target.value);
     const insertObject = {
@@ -84,35 +92,61 @@ export default function CashCounterPage() {
           draft.notes.fivehundered.numberofnotes = inputValue;
           draft.notes.fivehundered.value = inputValue * 500;
         });
-        setImage(imgeListAll[1]);
+
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: imgeListAll[1],
+          alt: "500 Ruppee",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       200: () => {
         setNestedObject((draft) => {
           draft.notes.twohundered.numberofnotes = inputValue;
           draft.notes.twohundered.value = inputValue * 200;
         });
-        setImage(imgeListAll[2]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: imgeListAll[2],
+          alt: "200 Ruppee",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       100: () => {
         setNestedObject((draft) => {
           draft.notes.onehundered.numberofnotes = inputValue;
           draft.notes.onehundered.value = inputValue * 100;
         });
-        setImage(imgeListAll[3]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: imgeListAll[3],
+          alt: "100 Ruppee",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       50: () => {
         setNestedObject((draft) => {
           draft.notes.fifty.numberofnotes = inputValue;
           draft.notes.fifty.value = inputValue * 50;
         });
-        setImage(imgeListAll[4]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: imgeListAll[4],
+          alt: "50 Ruppee",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       20: () => {
         setNestedObject((draft) => {
           draft.notes.twenty.numberofnotes = inputValue;
           draft.notes.twenty.value = inputValue * 20;
         });
-        setImage(imgeListAll[5]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: imgeListAll[5],
+          alt: "20 Ruppee",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       //Coins
       10: () => {
@@ -120,28 +154,49 @@ export default function CashCounterPage() {
           draft.coins.ten.numberofnotes = inputValue;
           draft.coins.ten.value = inputValue * 10;
         });
-        setImage(CoinsImage[0]);
+
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: CoinsImage[0],
+          alt: "10 Coin",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       5: () => {
         setNestedObject((draft) => {
           draft.coins.five.numberofnotes = inputValue;
           draft.coins.five.value = inputValue * 5;
         });
-        setImage(CoinsImage[1]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: CoinsImage[1],
+          alt: "5 Coin",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       2: () => {
         setNestedObject((draft) => {
           draft.coins.two.numberofnotes = inputValue;
           draft.coins.two.value = inputValue * 2;
         });
-        setImage(CoinsImage[2]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: CoinsImage[2],
+          alt: "2 Coin",
+          ClassName: "ImageList_Notes__style",
+        });
       },
       1: () => {
         setNestedObject((draft) => {
           draft.coins.one.numberofnotes = inputValue;
           draft.coins.one.value = inputValue * 1;
         });
-        setImage(CoinsImage[3]);
+        SetOnChangeImage({
+          ...OnchangeImage,
+          ImageURL: CoinsImage[3],
+          alt: "1 Coin",
+          ClassName: "ImageList_Notes__style",
+        });
       },
     };
 
@@ -151,7 +206,7 @@ export default function CashCounterPage() {
   };
 
   const handleSubmit = () => {
-    setImage(imgeListAll[0]);
+    SetOnChangeImage(DefaultImage);
     //All currency value
     const fivehundered = nestedObjct.notes.fivehundered.value;
     const twohundered = nestedObjct.notes.twohundered.value;
@@ -232,7 +287,7 @@ export default function CashCounterPage() {
 
   return (
     <div>
-      <ImageSwitch image={image} />
+      <ImageSwitch OnchangeImage={OnchangeImage} />
 
       <div>
         <div>
