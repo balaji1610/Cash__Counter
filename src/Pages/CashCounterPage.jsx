@@ -304,7 +304,22 @@ export default function CashCounterPage() {
   });
 
   const captialNumber = captial.join(" ");
-  console.log(captialNumber, "captial");
+  //Submit Validation
+
+  const submitValidation = [
+    nestedObjct.notes.fivehundered.numberofnotes,
+    nestedObjct.notes.twohundered.numberofnotes,
+    nestedObjct.notes.onehundered.numberofnotes,
+    nestedObjct.notes.fifty.numberofnotes,
+    nestedObjct.notes.twenty.numberofnotes,
+    nestedObjct.coins.ten.numberofnotes,
+    nestedObjct.coins.five.numberofnotes,
+    nestedObjct.coins.two.numberofnotes,
+    nestedObjct.coins.one.numberofnotes,
+  ];
+
+  const listsubmit = submitValidation.some((el) => el >= 1);
+  console.log(listsubmit, "listsubmit");
   return (
     <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
@@ -436,8 +451,13 @@ export default function CashCounterPage() {
             <Grid item xs={12} sm={1}></Grid>
             <Grid item xs={12}>
               <div className="Submit__clear__btn_layout">
-                <div>
+                <div
+                  style={{
+                    cursor: listsubmit === false ? "not-allowed" : "pointer",
+                  }}
+                >
                   <Button
+                    disabled={listsubmit === false ? true : false}
                     variant="contained"
                     color="error"
                     onClick={handleSubmit}
