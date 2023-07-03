@@ -7,6 +7,19 @@
   border: 2px solid #c38a8a;
   background-color: #ffffff;
   border-radius: 20px;
+  margin-left: 95px;
+  width: 60vh;
+}
+
+.Mobile__input_Layout__Flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  border: 2px solid #c38a8a;
+  background-color: #ffffff;
+  border-radius: 20px;
 }
 
 .spacing {
@@ -94,6 +107,6 @@
 }
 
 .Bg__CashCounter {
-  background-color: beige;
+  background-color: #1565c0;
   margin-top: 20px;
 }

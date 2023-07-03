@@ -1,6 +1,10 @@
+import useMediaQuery from "@mui/material/useMediaQuery";
 export default function Input__Card({ label, inputField, getvalue }) {
+  const mobile = useMediaQuery("(min-width:600px)");
   return (
-    <div className="input_Layout__Flex">
+    <div
+      className={mobile ? "input_Layout__Flex" : "Mobile__input_Layout__Flex"}
+    >
       <div>
         <h1>{label}</h1>
       </div>
@@ -32,4 +36,4 @@ export default function Input__Card({ label, inputField, getvalue }) {
       </div>
     </div>
   );
-}
+} 
