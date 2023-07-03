@@ -58,13 +58,15 @@
   justify-content: space-evenly;
   align-items: center;
   height: 10vh;
+  background-color: #ffffff;
+  border-radius: 20px;
 }
 .Total__sum__Card {
   border: 1px solid red;
   width: 38vh;
   height: 23vh;
   border-radius: 25px;
-  background-color: #bdbdbd;
+  background-color: #ffffff;
 }
 
 .Total__Notes {
@@ -72,7 +74,7 @@
   width: 24vh;
   height: 16vh;
   border-radius: 21px;
-  background-color: hsl(187deg 100% 89%);
+  background-color: #ffffff;
   margin-top: 24px;
 }
 .Total__Coins {
@@ -80,7 +82,7 @@
   width: 24vh;
   height: 16vh;
   border-radius: 21px;
-  background-color: hsl(187deg 100% 89%);
+  background-color: #ffffff;
   margin-top: 24px;
 }
 .total_sum_flex {

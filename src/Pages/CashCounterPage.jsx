@@ -433,7 +433,7 @@ export default function CashCounterPage() {
                 <div>
                   <Button
                     variant="contained"
-                    color="primary"
+                    color="error"
                     onClick={handleSubmit}
                   >
                     Submit
@@ -441,7 +441,7 @@ export default function CashCounterPage() {
                 </div>
                 <div>
                   {" "}
-                  <Button variant="contained" color="primary">
+                  <Button variant="contained" color="error">
                     Clear
                   </Button>
                 </div>
@@ -541,6 +541,7 @@ export default function CashCounterPage() {
               <h1
                 style={{
                   textAlign: "center",
+                  color: "#ffffff",
                 }}
               >
                 {amountInWords} Ruppes Only{" "}
