@@ -299,6 +299,12 @@ export default function CashCounterPage() {
   console.log(nestedObjct, "nestedObjct");
   const amountInWords = numWords(nestedObjct.total.sumoftotal);
 
+  const captial = amountInWords.split(" ").map((el) => {
+    return el.replace(el[0], el[0].toUpperCase());
+  });
+
+  const captialNumber = captial.join(" ");
+  console.log(captialNumber, "captial");
   return (
     <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
@@ -324,7 +330,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.notes.fivehundered.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.notes.fivehundered.value}
+                  getvalue={nestedObjct.notes.fivehundered.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -335,7 +341,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.notes.twohundered.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.notes.twohundered.value}
+                  getvalue={nestedObjct.notes.twohundered.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -346,7 +352,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.notes.onehundered.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.notes.onehundered.value}
+                  getvalue={nestedObjct.notes.onehundered.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -357,7 +363,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.notes.fifty.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.notes.fifty.value}
+                  getvalue={nestedObjct.notes.fifty.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -368,7 +374,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.notes.twenty.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.notes.twenty.value}
+                  getvalue={nestedObjct.notes.twenty.value.toLocaleString()}
                 />
               </div>
             </Grid>
@@ -390,7 +396,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.coins.ten.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.coins.ten.value}
+                  getvalue={nestedObjct.coins.ten.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -401,7 +407,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.coins.five.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.coins.five.value}
+                  getvalue={nestedObjct.coins.five.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -412,7 +418,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.coins.two.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.coins.two.value}
+                  getvalue={nestedObjct.coins.two.value.toLocaleString()}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -423,7 +429,7 @@ export default function CashCounterPage() {
                       value={nestedObjct.coins.one.numberofnotes}
                     />
                   }
-                  getvalue={nestedObjct.coins.one.value}
+                  getvalue={nestedObjct.coins.one.value.toLocaleString()}
                 />
               </div>
             </Grid>
@@ -539,13 +545,14 @@ export default function CashCounterPage() {
           <Grid container xs={12} direction="row" justifyContent="center">
             <Grid item>
               <h1
+                ClassName="Num__words_Font"
                 style={{
                   textAlign: "center",
-                  color: "#ffffff",
+                  color: "#FFC107",
                 }}
               >
-                {amountInWords} Ruppes Only{" "}
-                <span style={{ color: "red" }}>! ! !</span>
+                {captialNumber} Ruppes Only{" "}
+                <span style={{ color: "#ffffff" }}>! ! !</span>
               </h1>
             </Grid>
           </Grid>
