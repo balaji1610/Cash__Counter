@@ -59,6 +59,22 @@ export default function CashCounterPage() {
   };
   const [nestedObjct, setNestedObject] = useImmer(CashCounter_Payload);
 
+  const imgeListAll = [
+    " https://img.icons8.com/fluency/48/rupee.png",
+    "http://www.pngimagesfree.com/Money/Rupees/500-rupees-png.png",
+    "https://www.leftovercurrency.com/app/uploads/2017/10/200-indian-rupees-banknote-gandhi-sanchi-stupa-obverse.jpg",
+    "https://cdn.zeebiz.com/sites/default/files/2018/07/19/46032-rs100noterbi.PNG",
+    "https://en.numista.com/catalogue/photos/inde/626e32584340c1.09753964-original.jpg",
+    "https://i0.wp.com/coinbazzar.com/wp-content/uploads/2023/06/43.jpg",
+  ];
+
+  const CoinsImage = [
+    "https://www.shutterstock.com/image-vector/indian-shiny-ten-rupee-coin-260nw-1413721379.jpg",
+    "https://5.imimg.com/data5/SELLER/Default/2022/2/VX/HQ/JP/143056958/old-five-rupee-coin.jpg",
+    "https://en.numista.com/catalogue/photos/inde/3205-original.jpg",
+    "https://en.numista.com/catalogue/photos/inde/3165-original.jpg"
+  ];
+  const [image, setImage] = useState(imgeListAll[0]);
   const handleNumberChange = (e, argument) => {
     const inputValue = Number(e.target.value);
     const insertObject = {
@@ -68,30 +84,35 @@ export default function CashCounterPage() {
           draft.notes.fivehundered.numberofnotes = inputValue;
           draft.notes.fivehundered.value = inputValue * 500;
         });
+        setImage(imgeListAll[1]);
       },
       200: () => {
         setNestedObject((draft) => {
           draft.notes.twohundered.numberofnotes = inputValue;
           draft.notes.twohundered.value = inputValue * 200;
         });
+        setImage(imgeListAll[2]);
       },
       100: () => {
         setNestedObject((draft) => {
           draft.notes.onehundered.numberofnotes = inputValue;
           draft.notes.onehundered.value = inputValue * 100;
         });
+        setImage(imgeListAll[3]);
       },
       50: () => {
         setNestedObject((draft) => {
           draft.notes.fifty.numberofnotes = inputValue;
           draft.notes.fifty.value = inputValue * 50;
         });
+        setImage(imgeListAll[4]);
       },
       20: () => {
         setNestedObject((draft) => {
           draft.notes.twenty.numberofnotes = inputValue;
           draft.notes.twenty.value = inputValue * 20;
         });
+        setImage(imgeListAll[5]);
       },
       //Coins
       10: () => {
@@ -99,24 +120,28 @@ export default function CashCounterPage() {
           draft.coins.ten.numberofnotes = inputValue;
           draft.coins.ten.value = inputValue * 10;
         });
+        setImage(CoinsImage[0]);
       },
       5: () => {
         setNestedObject((draft) => {
           draft.coins.five.numberofnotes = inputValue;
           draft.coins.five.value = inputValue * 5;
         });
+        setImage(CoinsImage[1]);
       },
       2: () => {
         setNestedObject((draft) => {
           draft.coins.two.numberofnotes = inputValue;
           draft.coins.two.value = inputValue * 2;
         });
+        setImage(CoinsImage[2]);
       },
       1: () => {
         setNestedObject((draft) => {
           draft.coins.one.numberofnotes = inputValue;
           draft.coins.one.value = inputValue * 1;
         });
+        setImage(CoinsImage[3]);
       },
     };
 
@@ -126,6 +151,7 @@ export default function CashCounterPage() {
   };
 
   const handleSubmit = () => {
+    setImage(imgeListAll[0]);
     //All currency value
     const fivehundered = nestedObjct.notes.fivehundered.value;
     const twohundered = nestedObjct.notes.twohundered.value;
@@ -206,7 +232,7 @@ export default function CashCounterPage() {
 
   return (
     <div>
-      <ImageSwitch />
+      <ImageSwitch image={image} />
 
       <div>
         <div>

@@ -1,8 +1,15 @@
 .Parent__ImageSwitch__Layout {
-  border: 1px solid red;
+  border: 1px solid #ffffff;
   width: 38vh;
   height: 23vh;
   margin-top: 38px;
   border-radius: 25px;
-  background-color: #bdbdbd;
+  background-color: #bdadad;
+}
+
+.ImageList__style {
+  width: 240px;
+  height: 109px;
+  margin-top: 28px;
+  margin-left: 14px;
 }
