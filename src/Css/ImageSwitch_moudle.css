@@ -15,3 +15,12 @@
   width: 240px;
   height: 109px;
 }
+.ImageList__Coins__style {
+  width: 144px;
+  height: 113px;
+  border-radius: 75px;
+}
+.ImageList__default__style {
+  width: 70px;
+  height: 72px;
+}

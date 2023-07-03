@@ -69,16 +69,21 @@ export default function CashCounterPage() {
   ];
 
   const CoinsImage = [
-    "https://www.shutterstock.com/image-vector/indian-shiny-ten-rupee-coin-260nw-1413721379.jpg",
+    "https://en.numista.com/catalogue/photos/inde/3255-original.jpg",
     "https://5.imimg.com/data5/SELLER/Default/2022/2/VX/HQ/JP/143056958/old-five-rupee-coin.jpg",
     "https://en.numista.com/catalogue/photos/inde/3205-original.jpg",
     "https://en.numista.com/catalogue/photos/inde/3165-original.jpg",
   ];
 
+  const Image_ClassNames = [
+    "ImageList__default__style",
+    "ImageList_Notes__style",
+    "ImageList__Coins__style",
+  ];
   const DefaultImage = {
     ImageURL: imgeListAll[0],
     alt: "Defalut Indian Symbol",
-    ClassName: "ImageList_Notes__style",
+    ClassName:Image_ClassNames[0],
   };
   const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
 
@@ -97,7 +102,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[1],
           alt: "500 Ruppee",
-          ClassName: "ImageList_Notes__style",
+          ClassName:Image_ClassNames[1],
         });
       },
       200: () => {
@@ -109,7 +114,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[2],
           alt: "200 Ruppee",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[1],
         });
       },
       100: () => {
@@ -121,7 +126,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[3],
           alt: "100 Ruppee",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[1],
         });
       },
       50: () => {
@@ -133,7 +138,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[4],
           alt: "50 Ruppee",
-          ClassName: "ImageList_Notes__style",
+          ClassName:Image_ClassNames[1],
         });
       },
       20: () => {
@@ -145,7 +150,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: imgeListAll[5],
           alt: "20 Ruppee",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[1],
         });
       },
       //Coins
@@ -159,7 +164,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: CoinsImage[0],
           alt: "10 Coin",
-          ClassName: "ImageList_Notes__style",
+          ClassName:Image_ClassNames[2],
         });
       },
       5: () => {
@@ -171,7 +176,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: CoinsImage[1],
           alt: "5 Coin",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[2],
         });
       },
       2: () => {
@@ -183,7 +188,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: CoinsImage[2],
           alt: "2 Coin",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[2],
         });
       },
       1: () => {
@@ -195,7 +200,7 @@ export default function CashCounterPage() {
           ...OnchangeImage,
           ImageURL: CoinsImage[3],
           alt: "1 Coin",
-          ClassName: "ImageList_Notes__style",
+          ClassName: Image_ClassNames[2],
         });
       },
     };
