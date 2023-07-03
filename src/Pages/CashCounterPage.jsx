@@ -7,6 +7,20 @@ import { Button } from "@mui/material";
 
 import { useImmer } from "use-immer";
 import { useState } from "react";
+
+//Notes Images
+import Note_500 from "../assests/Images/Notes/Notes_500.png";
+import Note_200 from "../assests/Images/Notes/Note_200.jpg";
+import Note_100 from "../assests/Images/Notes/Note_100.jpg";
+import Note_50 from "../assests/Images/Notes/Note_50.jpg";
+import Note_20 from "../assests/Images/Notes/Note_20.jpg";
+
+//Coins Images
+
+import Coin_10 from "../assests/Images/Coins/Coin_10.jpg";
+import Coin_5 from "../assests/Images/Coins/Coin_5.jpg";
+import Coin_2 from "../assests/Images/Coins/Coin_2.jpg";
+import Coin_1 from "../assests/Images/Coins/Coin_1.jpg";
 const numWords = require("num-words");
 export default function CashCounterPage() {
   const mobile = useMediaQuery("(min-width:600px)");
@@ -61,19 +75,14 @@ export default function CashCounterPage() {
 
   const imgeListAll = [
     " https://img.icons8.com/fluency/48/rupee.png",
-    "http://www.pngimagesfree.com/Money/Rupees/500-rupees-png.png",
-    "https://www.leftovercurrency.com/app/uploads/2017/10/200-indian-rupees-banknote-gandhi-sanchi-stupa-obverse.jpg",
-    "https://cdn.zeebiz.com/sites/default/files/2018/07/19/46032-rs100noterbi.PNG",
-    "https://en.numista.com/catalogue/photos/inde/626e32584340c1.09753964-original.jpg",
-    "https://i0.wp.com/coinbazzar.com/wp-content/uploads/2023/06/43.jpg",
+    Note_500,
+    Note_200,
+    Note_100,
+    Note_50,
+    Note_20,
   ];
 
-  const CoinsImage = [
-    "https://en.numista.com/catalogue/photos/inde/3255-original.jpg",
-    "https://5.imimg.com/data5/SELLER/Default/2022/2/VX/HQ/JP/143056958/old-five-rupee-coin.jpg",
-    "https://en.numista.com/catalogue/photos/inde/3205-original.jpg",
-    "https://en.numista.com/catalogue/photos/inde/3165-original.jpg",
-  ];
+  const CoinsImage = [Coin_10, Coin_5, Coin_2, Coin_1];
 
   const Image_ClassNames = [
     "ImageList__default__style",
@@ -297,10 +306,7 @@ export default function CashCounterPage() {
       <div>
         <div>
           <Grid container>
-            <Grid item xs={12} sm={1}>
-     
-            </Grid>{" "}
-            {/* Notes */}
+            <Grid item xs={12} sm={1}></Grid> {/* Notes */}
             <Grid item xs={12} sm={5}>
               <div
                 className={
@@ -421,9 +427,7 @@ export default function CashCounterPage() {
                 />
               </div>
             </Grid>
-            <Grid item xs={12} sm={1}>
-              
-            </Grid>
+            <Grid item xs={12} sm={1}></Grid>
             <Grid item xs={12}>
               <div className="Submit__clear__btn_layout">
                 <div>
@@ -447,9 +451,7 @@ export default function CashCounterPage() {
 
           {/* Total Sum */}
           <Grid container direction="row" spacing={1}>
-            <Grid item xs={12} sm={2}>
-         
-            </Grid>
+            <Grid item xs={12} sm={2}></Grid>
 
             <Grid item xs={12} sm={3}>
               <div className="Total__Notes">
