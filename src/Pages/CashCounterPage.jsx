@@ -304,6 +304,7 @@ export default function CashCounterPage() {
   });
 
   const captialNumber = captial.join(" ");
+
   //Submit Validation
 
   const submitValidation = [
@@ -319,7 +320,43 @@ export default function CashCounterPage() {
   ];
 
   const listsubmit = submitValidation.some((el) => el >= 1);
-  console.log(listsubmit, "listsubmit");
+
+  const handleClearClick = () => {
+    setNestedObject((draft) => {
+      //500
+      draft.notes.fivehundered.numberofnotes = 0;
+      draft.notes.fivehundered.value = 0;
+      //200
+      draft.notes.twohundered.numberofnotes = 0;
+      draft.notes.twohundered.value = 0;
+      //100
+      draft.notes.onehundered.numberofnotes = 0;
+      draft.notes.onehundered.value = 0;
+      //50
+      draft.notes.fifty.numberofnotes = 0;
+      draft.notes.fifty.value = 0;
+      //20
+      draft.notes.twenty.numberofnotes = 0;
+      draft.notes.twenty.value = 0;
+      //10
+      draft.coins.ten.numberofnotes = 0;
+      draft.coins.ten.value = 0;
+      //5
+      draft.coins.five.numberofnotes = 0;
+      draft.coins.five.value = 0;
+      //2
+      draft.coins.two.numberofnotes = 0;
+      draft.coins.two.value = 0;
+      //1
+      draft.coins.one.numberofnotes = 0;
+      draft.coins.one.value = 0;
+      //total
+      draft.total.sumoftotal = 0;
+      draft.total.notes = 0;
+      draft.total.coins = 0;
+    });
+  };
+
   return (
     <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
@@ -467,7 +504,11 @@ export default function CashCounterPage() {
                 </div>
                 <div>
                   {" "}
-                  <Button variant="contained" color="error">
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleClearClick}
+                  >
                     Clear
                   </Button>
                 </div>
