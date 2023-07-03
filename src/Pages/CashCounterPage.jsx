@@ -96,7 +96,6 @@ export default function CashCounterPage() {
   };
   const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
 
-  console.log(OnchangeImage, "--------->OnchangeImage");
   const handleNumberChange = (e, argument) => {
     const inputValue = Number(e.target.value);
     const insertObject = {
@@ -357,6 +356,66 @@ export default function CashCounterPage() {
     });
   };
 
+  //NumberOfNotes
+
+  const Input_NumberOfNotes = [
+    nestedObjct.notes.fivehundered.numberofnotes,
+    nestedObjct.notes.twohundered.numberofnotes,
+    nestedObjct.notes.onehundered.numberofnotes,
+    nestedObjct.notes.fifty.numberofnotes,
+    nestedObjct.notes.twenty.numberofnotes,
+    nestedObjct.coins.ten.numberofnotes,
+    nestedObjct.coins.five.numberofnotes,
+    nestedObjct.coins.two.numberofnotes,
+    nestedObjct.coins.one.numberofnotes,
+  ];
+
+  const result_Input_NumberOfNotes = Input_NumberOfNotes.map((el) => {
+    return el === 0 ? "" : el;
+  });
+
+  const [
+    Number_fivehundered,
+    Number_twohundered,
+    Number_onehundered,
+    Number_fifty,
+    Number_twenty,
+    Number_ten,
+    Number_five,
+    Number_two,
+    Number_one,
+  ] = result_Input_NumberOfNotes;
+
+  //Getvalue_Currency
+
+  const GetValue_Notes = [
+    nestedObjct.notes.fivehundered.value,
+    nestedObjct.notes.twohundered.value,
+    nestedObjct.notes.onehundered.value,
+    nestedObjct.notes.fifty.value,
+    nestedObjct.notes.twenty.value,
+    nestedObjct.coins.ten.value,
+    nestedObjct.coins.five.value,
+    nestedObjct.coins.two.value,
+    nestedObjct.coins.one.value,
+  ];
+
+  const result_GetValue_Notes = GetValue_Notes.map((el) => {
+    return el === 0 ? "" : el.toLocaleString();
+  });
+
+  const [
+    GetValue_fivehundered,
+    GetValue_twohundered,
+    GetValue_onehundered,
+    GetValue_fifty,
+    GetValue_twenty,
+    GetValue_ten,
+    GetValue_five,
+    GetValue_two,
+    GetValue_one,
+  ] = result_GetValue_Notes;
+  console.log(result_GetValue_Notes, "result_GetValue_Notes");
   return (
     <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
@@ -379,10 +438,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 500)}
-                      value={nestedObjct.notes.fivehundered.numberofnotes}
+                      value={Number_fivehundered}
                     />
                   }
-                  getvalue={nestedObjct.notes.fivehundered.value.toLocaleString()}
+                  getvalue={GetValue_fivehundered}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -390,10 +449,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 200)}
-                      value={nestedObjct.notes.twohundered.numberofnotes}
+                      value={Number_twohundered}
                     />
                   }
-                  getvalue={nestedObjct.notes.twohundered.value.toLocaleString()}
+                  getvalue={GetValue_twohundered}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -401,10 +460,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 100)}
-                      value={nestedObjct.notes.onehundered.numberofnotes}
+                      value={Number_onehundered}
                     />
                   }
-                  getvalue={nestedObjct.notes.onehundered.value.toLocaleString()}
+                  getvalue={GetValue_onehundered}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -412,10 +471,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 50)}
-                      value={nestedObjct.notes.fifty.numberofnotes}
+                      value={Number_fifty}
                     />
                   }
-                  getvalue={nestedObjct.notes.fifty.value.toLocaleString()}
+                  getvalue={GetValue_fifty}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -423,10 +482,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 20)}
-                      value={nestedObjct.notes.twenty.numberofnotes}
+                      value={Number_twenty}
                     />
                   }
-                  getvalue={nestedObjct.notes.twenty.value.toLocaleString()}
+                  getvalue={GetValue_twenty}
                 />
               </div>
             </Grid>
@@ -445,10 +504,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 10)}
-                      value={nestedObjct.coins.ten.numberofnotes}
+                      value={Number_ten}
                     />
                   }
-                  getvalue={nestedObjct.coins.ten.value.toLocaleString()}
+                  getvalue={GetValue_ten}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -456,10 +515,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 5)}
-                      value={nestedObjct.coins.five.numberofnotes}
+                      value={Number_five}
                     />
                   }
-                  getvalue={nestedObjct.coins.five.value.toLocaleString()}
+                  getvalue={GetValue_five}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -467,10 +526,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 2)}
-                      value={nestedObjct.coins.two.numberofnotes}
+                      value={Number_two}
                     />
                   }
-                  getvalue={nestedObjct.coins.two.value.toLocaleString()}
+                  getvalue={GetValue_two}
                 />
                 <div className="spacing"></div>
                 <Input__Card
@@ -478,10 +537,10 @@ export default function CashCounterPage() {
                   inputField={
                     <InputField
                       onChange={(e) => handleNumberChange(e, 1)}
-                      value={nestedObjct.coins.one.numberofnotes}
+                      value={Number_one}
                     />
                   }
-                  getvalue={nestedObjct.coins.one.value.toLocaleString()}
+                  getvalue={GetValue_one}
                 />
               </div>
             </Grid>
