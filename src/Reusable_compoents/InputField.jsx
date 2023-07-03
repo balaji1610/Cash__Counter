@@ -10,6 +10,11 @@ export default function InputField({ onChange, value }) {
         style={{
           width: "120px",
         }}
+        inputProps={{
+          min: 1,
+          max: 999,
+          style: { fontSize: 20, color: "black" },
+        }}
         onChange={onChange}
         value={value}
       />

@@ -97,7 +97,7 @@ export default function CashCounterPage() {
   const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
 
   const handleNumberChange = (e, argument) => {
-    const inputValue = Number(e.target.value);
+    const inputValue = Number(e.target.value.slice(0, 3));
     const insertObject = {
       //Notes
       500: () => {
@@ -415,7 +415,7 @@ export default function CashCounterPage() {
     GetValue_two,
     GetValue_one,
   ] = result_GetValue_Notes;
-  console.log(result_GetValue_Notes, "result_GetValue_Notes");
+
   return (
     <div className="Bg__CashCounter">
       <ImageSwitch OnchangeImage={OnchangeImage} />
