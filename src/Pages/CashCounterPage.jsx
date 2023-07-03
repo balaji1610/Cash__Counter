@@ -72,7 +72,7 @@ export default function CashCounterPage() {
     },
   };
   const [nestedObjct, setNestedObject] = useImmer(CashCounter_Payload);
-
+  //--------------------------->Images<------------------
   const imgeListAll = [
     " https://img.icons8.com/fluency/48/rupee.png",
     Note_500,
@@ -95,7 +95,7 @@ export default function CashCounterPage() {
     ClassName: Image_ClassNames[0],
   };
   const [OnchangeImage, SetOnChangeImage] = useState(DefaultImage);
-
+  //------------------->Onchange----------------->
   const handleNumberChange = (e, argument) => {
     const inputValue = Number(e.target.value.slice(0, 3));
     const insertObject = {
@@ -217,7 +217,7 @@ export default function CashCounterPage() {
 
     return insertObject[argument]();
   };
-
+  //--------------------------->HandleSubmit<-----------------------
   const handleSubmit = () => {
     SetOnChangeImage(DefaultImage);
     //All currency value
@@ -267,7 +267,6 @@ export default function CashCounterPage() {
       Note_twenty,
     ];
 
-    console.log(ArrayNumberofNotes, "ArrayNumberofNotes");
     const ArrayNumberofCoins = [Coin_Ten, Coin_Five, Coin_Two, Coin_One];
 
     //operations
@@ -296,6 +295,8 @@ export default function CashCounterPage() {
     })();
   };
   console.log(nestedObjct, "nestedObjct");
+
+  //--------------------------->Numofwords<------------------
   const amountInWords = numWords(nestedObjct.total.sumoftotal);
 
   const captial = amountInWords.split(" ").map((el) => {
@@ -304,6 +305,7 @@ export default function CashCounterPage() {
 
   const captialNumber = captial.join(" ");
 
+  //----------------->Button Disabled<----------------------
   //Submit Validation
 
   const submitValidation = [
