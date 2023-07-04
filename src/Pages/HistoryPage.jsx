@@ -1,16 +1,14 @@
-import axios from "axios";
 import { useEffect } from "react";
+import Services from "../Services/ServicesAxios";
 export default function HistoryPage() {
   useEffect(() => {
-    async function GetResult() {
-      const result = await axios(
-        "https://orange-salty-insect.glitch.me/cashcounter"
-      );
+    async function GetResults() {
+      const result = await Services.getApi();
 
-      console.log(result.data);
+      console.log(result, "result");
     }
 
-    GetResult();
+    GetResults();
   }, []);
 
   return <div>HistoryPage</div>;

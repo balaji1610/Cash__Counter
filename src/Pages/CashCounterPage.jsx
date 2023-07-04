@@ -6,7 +6,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Button } from "@mui/material";
 
 import { useImmer } from "use-immer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //Notes Images
 import Note_500 from "../assests/Images/Notes/Notes_500.png";
@@ -21,7 +21,11 @@ import Coin_10 from "../assests/Images/Coins/Coin_10.jpg";
 import Coin_5 from "../assests/Images/Coins/Coin_5.jpg";
 import Coin_2 from "../assests/Images/Coins/Coin_2.jpg";
 import Coin_1 from "../assests/Images/Coins/Coin_1.jpg";
+
+import PayloadCurrentDate from "../Containers/PayloadCurrentDate";
+import Services from "../Services/ServicesAxios";
 const numWords = require("num-words");
+
 export default function CashCounterPage() {
   const mobile = useMediaQuery("(min-width:600px)");
   const CashCounter_Payload = {
@@ -72,6 +76,8 @@ export default function CashCounterPage() {
     },
   };
   const [nestedObjct, setNestedObject] = useImmer(CashCounter_Payload);
+  const [counter, setCounter] = useState(0);
+
   //--------------------------->Images<------------------
   const imgeListAll = [
     " https://img.icons8.com/fluency/48/rupee.png",
@@ -217,8 +223,29 @@ export default function CashCounterPage() {
 
     return insertObject[argument]();
   };
+
+  //------------------->POST API ----------------->
+
+  const CurrentTime = PayloadCurrentDate.time();
+  async function PostSendPayload() {
+    const PayloadData = {
+      id: "",
+      date: `${CurrentTime}`,
+      ...nestedObjct,
+    };
+    const SendToPayload = await Services.postApi(PayloadData);
+    console.log(SendToPayload, "SendToPayload");
+  }
+
+  useEffect(() => {
+    if (counter > 0) {
+      PostSendPayload();
+    }
+  }, [counter]);
   //--------------------------->HandleSubmit<-----------------------
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     SetOnChangeImage(DefaultImage);
     //All currency value
     const fivehundered = nestedObjct.notes.fivehundered.value;
@@ -282,6 +309,28 @@ export default function CashCounterPage() {
       return a + b;
     }, 0);
 
+    console.log(
+      SumofArrayofTotalSum,
+      SumofArrayNumberofNotes,
+      SumofArrayNumberofCoins
+    );
+
+    setCounter((counter) => counter + 1);
+
+    setNestedObject((draft) => {
+      draft.total.sumoftotal = SumofArrayofTotalSum;
+      // draft.total.notes = SumofArrayNumberofNotes;
+      // draft.total.coins = SumofArrayNumberofCoins;
+    });
+
+    // setNestedObject((prevState) => ({
+    //   ...prevState,
+    //   total: {
+    //     ...nestedObjct.total,
+    //     sumoftotal: SumofArrayofTotalSum,
+    //   },
+    // }));
+
     {
       /*  //React: Expected an assignment or function call and instead saw an expression implentet self exeuting fn */
     }
@@ -293,8 +342,18 @@ export default function CashCounterPage() {
         draft.total.coins = SumofArrayNumberofCoins;
       });
     })();
+
+    // const PayloadData = {
+    //   id: "",
+    //   date: "04 July 2023 at 11:37 am",
+    //   ...nestedObjct,
+    // };
+
+    // const PostData = await Services.postApi(PayloadData)
+
+    // console.log(PostData, "PostData");
+    // console.log(nestedObjct, "nestedObjct");
   };
-  console.log(nestedObjct, "nestedObjct");
 
   //--------------------------->Numofwords<------------------
   const amountInWords = numWords(nestedObjct.total.sumoftotal);
