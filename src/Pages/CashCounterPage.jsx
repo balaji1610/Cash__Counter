@@ -27,7 +27,10 @@ import Services from "../Services/ServicesAxios";
 
 //
 import { useSelector, useDispatch } from "react-redux";
-import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
+import {
+  callUsereffect,
+  postApithunk,
+} from "../features/cashcounter/CashCounterSlice";
 const numWords = require("num-words");
 
 export default function CashCounterPage() {
@@ -241,7 +244,7 @@ export default function CashCounterPage() {
       date: `${CurrentTime}`,
       ...nestedObjct,
     };
-    const SendToPayload = await Services.postApi(PayloadData);
+    const SendToPayload = dispatch(postApithunk(PayloadData));
     console.log(SendToPayload, "SendToPayload");
   }
 

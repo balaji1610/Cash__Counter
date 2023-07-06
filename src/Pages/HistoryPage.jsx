@@ -5,9 +5,13 @@ export default function HistoryPage() {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.cashCounter);
 
+  const CallEffect = useSelector((state) => state.cashCounter.value);
+
   useEffect(() => {
     dispatch(getApithunk());
-  }, []);
+  }, [CallEffect]);
+
+  console.log(users, "users");
 
   return (
     <div>

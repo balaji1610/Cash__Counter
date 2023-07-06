@@ -6,6 +6,15 @@ export const getApithunk = createAsyncThunk("CashCounter/Fetch", async () => {
   return res;
 });
 
+export const postApithunk = createAsyncThunk(
+  "CashCounter/Postitems",
+  async (payload) => {
+    const res = await Services.postApi(payload);
+
+    return res;
+  }
+);
+
 const initialState = {
   users: [],
   loading: false,
