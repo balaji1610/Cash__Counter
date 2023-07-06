@@ -25,6 +25,7 @@ export default function HistoryPage() {
     dispatch(getApithunk());
     dispatch(getLowToHightThunk());
     dispatch(getHighToLowThunk());
+    setShowHistoryPage(showHistoryPage)
   }, [CallEffect]);
   // console.log(lowtohigh, "lowtohigh");
   // console.log(CallEffect, "CallEffect");
