@@ -19,7 +19,7 @@ export default function HistoryPage() {
         <div>
           {" "}
           {users.map((elm) => {
-            return <div>{elm.id}</div>;
+            return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>
       )}
