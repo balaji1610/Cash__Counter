@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   getApithunk,
   deleteApithunk,
@@ -28,27 +28,39 @@ export default function HistoryPage() {
   }, [CallEffect]);
   // console.log(lowtohigh, "lowtohigh");
   // console.log(CallEffect, "CallEffect");
-  console.log(hightolow, "hightolow");
+  // console.log(hightolow, "hightolow");
 
+  //Sorting
+  const [showHistoryPage, setShowHistoryPage] = useState(users);
+  const handleChange = (event) => {
+    let selectedValue = {
+      "High To Low": () => setShowHistoryPage(hightolow),
+      "Low To High": () => setShowHistoryPage(lowtohigh),
+      "default value": () => setShowHistoryPage(users),
+    };
+
+    return selectedValue[event.target.value]();
+  };
+  console.log(showHistoryPage, "HistoryPage");
   return (
     <div>
-      <button onClick={handleDeleteClick}>Delete</button>
+      {/* <button onClick={handleDeleteClick}>Delete</button> */}
 
       <div>
-        <Sorting />
+        <Sorting handleChange={handleChange} />
       </div>
-      {/* {loading ? (
+      {loading ? (
         <div>
           <h1 style={{ textAlign: "center" }}>...Loading</h1>
         </div>
       ) : (
         <div>
           {" "}
-          {hightolow.map((elm) => {
+          {showHistoryPage.map((elm) => {
             return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>
-      )} */}
+      )}
     </div>
   );
 }
