@@ -27,10 +27,9 @@ import Services from "../Services/ServicesAxios";
 
 //
 import { useSelector, useDispatch } from "react-redux";
-import {
-  callUsereffect,
-  postApithunk,
-} from "../features/cashcounter/CashCounterSlice";
+import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
+import { postApithunk } from "../features/cashcounter/ThunkApi";
+
 const numWords = require("num-words");
 
 export default function CashCounterPage() {

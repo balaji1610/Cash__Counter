@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getApithunk } from "../features/cashcounter/CashCounterSlice";
+import { getApithunk } from "../features/cashcounter/ThunkApi";
 import { useSelector, useDispatch } from "react-redux";
 export default function HistoryPage() {
   const dispatch = useDispatch();
