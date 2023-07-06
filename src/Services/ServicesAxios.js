@@ -13,6 +13,18 @@ const Services = {
 
     return response;
   },
+  getLowToHigh: () => {
+    const response = axios
+      .get(`${BASE_URL}?_sort=total.sumoftotal`)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      });
+
+    return response;
+  },
 
   postApi: (payload) => {
     const response = axios

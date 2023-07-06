@@ -1,8 +1,10 @@
-import {createSlice } from "@reduxjs/toolkit";
-import { getApithunk } from "./ThunkApi";
+import { createSlice } from "@reduxjs/toolkit";
+import { getApithunk, getLowToHightThunk } from "./ThunkApi";
 
 const initialState = {
   users: [],
+  lowtohigh: [],
+  loadinglowtohigh:false,
   loading: false,
   value: 0,
 };
@@ -22,8 +24,20 @@ export const CashCounterSlice = createSlice({
       state.loading = false;
       state.users = action.payload;
     },
+
     [getApithunk.rejected]: (state, action) => {
       state.loading = false;
+    },
+    //lowtohigh
+    [getLowToHightThunk.pending]: (state, action) => {
+      state.loadinglowtohigh = true;
+    },
+    [getLowToHightThunk.fulfilled]: (state, action) => {
+      state.loadinglowtohigh = false;
+      state.lowtohigh = action.payload;
+    },
+    [getLowToHightThunk.rejected]: (state, action) => {
+      state.loadinglowtohigh = false;
     },
   },
 });

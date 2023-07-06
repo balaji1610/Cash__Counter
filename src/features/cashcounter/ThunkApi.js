@@ -5,6 +5,13 @@ export const getApithunk = createAsyncThunk("CashCounter/Fetch", async () => {
   const res = await Services.getApi();
   return res;
 });
+export const getLowToHightThunk = createAsyncThunk(
+  "CashCounter/LowToHight",
+  async () => {
+    const res = await Services.getLowToHigh();
+    return res;
+  }
+);
 
 export const postApithunk = createAsyncThunk(
   "CashCounter/Postitems",
