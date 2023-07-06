@@ -14,3 +14,11 @@ export const postApithunk = createAsyncThunk(
     return res;
   }
 );
+export const deleteApithunk = createAsyncThunk(
+  "CashCounter/DeleteItems",
+  async (id) => {
+    const res = await Services.DeleteApi(id);
+
+    return res;
+  }
+);

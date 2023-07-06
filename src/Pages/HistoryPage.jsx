@@ -1,20 +1,28 @@
 import { useEffect } from "react";
-import { getApithunk } from "../features/cashcounter/ThunkApi";
+import { getApithunk, deleteApithunk } from "../features/cashcounter/ThunkApi";
 import { useSelector, useDispatch } from "react-redux";
+import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 export default function HistoryPage() {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.cashCounter);
 
   const CallEffect = useSelector((state) => state.cashCounter.value);
 
+  const handleDeleteClick = async () => {
+    const deleteItemsApi = await dispatch(deleteApithunk(51));
+    dispatch(callUsereffect());
+    console.log(deleteItemsApi, "deleteItemsApi");
+  };
   useEffect(() => {
     dispatch(getApithunk());
   }, [CallEffect]);
 
+  console.log(CallEffect, "CallEffect");
   console.log(users, "users");
 
   return (
     <div>
+      <button onClick={handleDeleteClick}>Delete</button>
       {loading ? (
         <div>
           <h1 style={{ textAlign: "center" }}>...Loading</h1>

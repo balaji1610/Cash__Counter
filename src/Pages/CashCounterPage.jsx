@@ -243,7 +243,7 @@ export default function CashCounterPage() {
       date: `${CurrentTime}`,
       ...nestedObjct,
     };
-    const SendToPayload = dispatch(postApithunk(PayloadData));
+    const SendToPayload = await dispatch(postApithunk(PayloadData));
     console.log(SendToPayload, "SendToPayload");
   }
 
