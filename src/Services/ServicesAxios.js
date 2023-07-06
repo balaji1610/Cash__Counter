@@ -3,7 +3,7 @@ const BASE_URL = "https://orange-salty-insect.glitch.me/cashcounter";
 const Services = {
   getApi: () => {
     const response = axios
-      .get(`${BASE_URL}`)
+      .get(`${BASE_URL}?_sort=id&_order=desc`)
       .then((response) => {
         return response.data;
       })
