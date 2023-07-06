@@ -1,9 +1,7 @@
 import Dropdown from "../Reusable_compoents/Dropdown";
 import { Grid } from "@mui/material";
 
-export default function Sorting({handleChange}) {
-
-
+export default function Sorting({ handleChange }) {
   const options = [
     {
       value: "High To Low",
@@ -14,7 +12,7 @@ export default function Sorting({handleChange}) {
       label: "Low To High",
     },
     {
-      value: "default value",
+      value: "default",
       label: "Default",
     },
   ];

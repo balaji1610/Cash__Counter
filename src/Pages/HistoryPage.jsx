@@ -25,24 +25,28 @@ export default function HistoryPage() {
     dispatch(getApithunk());
     dispatch(getLowToHightThunk());
     dispatch(getHighToLowThunk());
-    setShowHistoryPage(showHistoryPage)
   }, [CallEffect]);
   // console.log(lowtohigh, "lowtohigh");
   // console.log(CallEffect, "CallEffect");
   // console.log(hightolow, "hightolow");
 
   //Sorting
-  const [showHistoryPage, setShowHistoryPage] = useState(users);
+  const [showHistoryPage, setShowHistoryPage] = useState("default");
   const handleChange = (event) => {
     let selectedValue = {
-      "High To Low": () => setShowHistoryPage(hightolow),
-      "Low To High": () => setShowHistoryPage(lowtohigh),
-      "default value": () => setShowHistoryPage(users),
+      "High To Low": () => setShowHistoryPage("High To Low"),
+      "Low To High": () => setShowHistoryPage("Low To High"),
+      default: () => setShowHistoryPage("default"),
     };
-
     return selectedValue[event.target.value]();
   };
-  console.log(showHistoryPage, "HistoryPage");
+
+  const getitem =
+    (showHistoryPage == "High To Low" && hightolow) ||
+    (showHistoryPage == "Low To High" && lowtohigh) ||
+    (showHistoryPage == "default" && users) ||
+    users;
+
   return (
     <div>
       {/* <button onClick={handleDeleteClick}>Delete</button> */}
@@ -57,7 +61,7 @@ export default function HistoryPage() {
       ) : (
         <div>
           {" "}
-          {showHistoryPage.map((elm) => {
+          {getitem.map((elm) => {
             return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>
