@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getApithunk, getLowToHightThunk } from "./ThunkApi";
+import { getApithunk, getLowToHightThunk, getHighToLowThunk } from "./ThunkApi";
 
 const initialState = {
   users: [],
   lowtohigh: [],
-  loadinglowtohigh:false,
+  hightolow: [],
   loading: false,
   value: 0,
 };
+
 export const CashCounterSlice = createSlice({
   name: "cashCounter",
   initialState,
@@ -17,6 +18,7 @@ export const CashCounterSlice = createSlice({
     },
   },
   extraReducers: {
+    //getApithunk
     [getApithunk.pending]: (state, action) => {
       state.loading = true;
     },
@@ -28,17 +30,30 @@ export const CashCounterSlice = createSlice({
     [getApithunk.rejected]: (state, action) => {
       state.loading = false;
     },
-    //lowtohigh
+    //getLowToHightThunk
     [getLowToHightThunk.pending]: (state, action) => {
-      state.loadinglowtohigh = true;
+      state.loading = true;
     },
     [getLowToHightThunk.fulfilled]: (state, action) => {
-      state.loadinglowtohigh = false;
+      state.loading = false;
       state.lowtohigh = action.payload;
     },
     [getLowToHightThunk.rejected]: (state, action) => {
-      state.loadinglowtohigh = false;
+      state.loading = false;
     },
+    //getHighToLowThunk
+    [getHighToLowThunk.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [getHighToLowThunk.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.hightolow = action.payload;
+    },
+    [getHighToLowThunk.rejected]: (state, action) => {
+      state.loading = false;
+    },
+
+
   },
 });
 export const { callUsereffect } = CashCounterSlice.actions;

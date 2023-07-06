@@ -3,15 +3,14 @@ import {
   getApithunk,
   deleteApithunk,
   getLowToHightThunk,
+  getHighToLowThunk,
 } from "../features/cashcounter/ThunkApi";
 import { useSelector, useDispatch } from "react-redux";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 export default function HistoryPage() {
   const dispatch = useDispatch();
   const { users, loading } = useSelector((state) => state.cashCounter);
-  const { lowtohigh, loadinglowtohigh } = useSelector(
-    (state) => state.cashCounter
-  );
+  const { lowtohigh, hightolow } = useSelector((state) => state.cashCounter);
   const CallEffect = useSelector((state) => state.cashCounter.value);
 
   const handleDeleteClick = async () => {
@@ -22,10 +21,11 @@ export default function HistoryPage() {
   useEffect(() => {
     dispatch(getApithunk());
     dispatch(getLowToHightThunk());
+    dispatch(getHighToLowThunk());
   }, [CallEffect]);
-  console.log(lowtohigh, "lowtohigh");
+  // console.log(lowtohigh, "lowtohigh");
   // console.log(CallEffect, "CallEffect");
-  // console.log(users, "users");
+  console.log(hightolow, "hightolow");
 
   return (
     <div>
@@ -37,7 +37,7 @@ export default function HistoryPage() {
       ) : (
         <div>
           {" "}
-          {lowtohigh.map((elm) => {
+          {hightolow.map((elm) => {
             return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>

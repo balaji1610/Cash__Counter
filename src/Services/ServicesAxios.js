@@ -25,6 +25,18 @@ const Services = {
 
     return response;
   },
+  getHighToLow: () => {
+    const response = axios
+      .get(`${BASE_URL}?_sort=total.sumoftotal&_order=desc`)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      });
+
+    return response;
+  },
 
   postApi: (payload) => {
     const response = axios

@@ -6,9 +6,16 @@ export const getApithunk = createAsyncThunk("CashCounter/Fetch", async () => {
   return res;
 });
 export const getLowToHightThunk = createAsyncThunk(
-  "CashCounter/LowToHight",
+  "CashCounter/LowToHigh",
   async () => {
     const res = await Services.getLowToHigh();
+    return res;
+  }
+);
+export const getHighToLowThunk = createAsyncThunk(
+  "CashCounter/HighToLow",
+  async () => {
+    const res = await Services.getHighToLow();
     return res;
   }
 );
