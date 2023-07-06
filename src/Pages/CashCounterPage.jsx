@@ -24,9 +24,17 @@ import Coin_1 from "../assests/Images/Coins/Coin_1.jpg";
 
 import PayloadCurrentDate from "../Containers/PayloadCurrentDate";
 import Services from "../Services/ServicesAxios";
+
+//
+import { useSelector, useDispatch } from "react-redux";
+import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 const numWords = require("num-words");
 
 export default function CashCounterPage() {
+  const countRedux = useSelector((state) => state.cashCounter.value);
+  const dispatch = useDispatch();
+
+  console.log(countRedux, "value");
   const mobile = useMediaQuery("(min-width:600px)");
   const CashCounter_Payload = {
     notes: {
@@ -245,7 +253,7 @@ export default function CashCounterPage() {
   //--------------------------->HandleSubmit<-----------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    dispatch(callUsereffect());
     SetOnChangeImage(DefaultImage);
     //All currency value
     const fivehundered = nestedObjct.notes.fivehundered.value;

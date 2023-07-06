@@ -9,11 +9,16 @@ export const getApithunk = createAsyncThunk("CashCounter/Fetch", async () => {
 const initialState = {
   users: [],
   loading: false,
-  value: 10,
+  value: 0,
 };
 export const CashCounterSlice = createSlice({
   name: "cashCounter",
   initialState,
+  reducers: {
+    callUsereffect: (state) => {
+      state.value += 1;
+    },
+  },
   extraReducers: {
     [getApithunk.pending]: (state, action) => {
       state.loading = true;
@@ -27,5 +32,5 @@ export const CashCounterSlice = createSlice({
     },
   },
 });
-
+export const { callUsereffect } = CashCounterSlice.actions;
 export default CashCounterSlice.reducer;
