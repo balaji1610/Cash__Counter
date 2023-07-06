@@ -56,7 +56,7 @@ export default function HistoryPage() {
       ) : (
         <div>
           {" "}
-          {users.map((elm) => {
+          {showHistoryPage.map((elm) => {
             return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>
