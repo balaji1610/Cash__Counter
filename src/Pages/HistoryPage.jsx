@@ -7,10 +7,13 @@ import {
 } from "../features/cashcounter/ThunkApi";
 import { useSelector, useDispatch } from "react-redux";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
+import Sorting from "../Containers/Sorting";
 export default function HistoryPage() {
   const dispatch = useDispatch();
-  const { users, loading } = useSelector((state) => state.cashCounter);
-  const { lowtohigh, hightolow } = useSelector((state) => state.cashCounter);
+  const { loading } = useSelector((state) => state.cashCounter);
+  const { users, lowtohigh, hightolow } = useSelector(
+    (state) => state.cashCounter
+  );
   const CallEffect = useSelector((state) => state.cashCounter.value);
 
   const handleDeleteClick = async () => {
@@ -30,7 +33,11 @@ export default function HistoryPage() {
   return (
     <div>
       <button onClick={handleDeleteClick}>Delete</button>
-      {loading ? (
+
+      <div>
+        <Sorting />
+      </div>
+      {/* {loading ? (
         <div>
           <h1 style={{ textAlign: "center" }}>...Loading</h1>
         </div>
@@ -41,7 +48,7 @@ export default function HistoryPage() {
             return <div key={elm.id}>{elm.date}</div>;
           })}
         </div>
-      )}
+      )} */}
     </div>
   );
 }
