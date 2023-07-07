@@ -6,6 +6,7 @@ import "./Css/fontStyle.css";
 import "./Css/DividerButton__Moudle.css";
 import "./Css/ImageSwitch_moudle.css";
 import "./Css/CashCounter__Moudle.css";
+import "./Css/ListLayout.css";
 import App from "./App";
 import { store } from "./store";
 import { Provider } from "react-redux";

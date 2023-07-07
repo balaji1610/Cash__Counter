@@ -8,6 +8,7 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import Sorting from "../Containers/Sorting";
+import ListDesign from "../Containers/ListDesign";
 export default function HistoryPage() {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.cashCounter);
@@ -54,7 +55,7 @@ export default function HistoryPage() {
       <div>
         <Sorting handleChange={handleChange} />
       </div>
-      {loading ? (
+      {/* {loading ? (
         <div>
           <h1 style={{ textAlign: "center" }}>...Loading</h1>
         </div>
@@ -62,10 +63,11 @@ export default function HistoryPage() {
         <div>
           {" "}
           {getitem.map((elm) => {
-            return <div key={elm.id}>{elm.date}</div>;
+            return <ListDesign item={elm} />;
           })}
         </div>
-      )}
+      )} */}
+      <ListDesign />
     </div>
   );
 }
