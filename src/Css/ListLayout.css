@@ -3,13 +3,17 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid red;
-  background-color: aqua;
+  border: 1px solid black;
+  background: linear-gradient(
+    90deg,
+    hsla(11, 82%, 87%, 1) 0%,
+    hsla(299, 85%, 90%, 1) 100%
+  );
   height: 20vh;
 }
 
 .Date_Time_layout {
-  border: 2px solid red;
+  border-right: 2px solid red;
   height: 20vh;
   width: 30vh;
 }
@@ -17,14 +21,13 @@
 .Total_sum_layout {
   display: flex;
   flex-direction: column;
-
   height: 20vh;
   width: 550px;
 }
 .Coins_Notes_layout {
-  border: 2px solid red;
   height: 20vh;
   width: 30vh;
+  border-left: 2px solid red;
 }
 .date_layout {
   display: flex;
@@ -47,4 +50,9 @@
   justify-content: flex-end;
   align-items: flex-end;
   height: 5vh;
+}
+
+.spacing {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

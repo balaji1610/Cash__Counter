@@ -55,7 +55,7 @@ export default function HistoryPage() {
       <div>
         <Sorting handleChange={handleChange} />
       </div>
-      {/* {loading ? (
+      {loading ? (
         <div>
           <h1 style={{ textAlign: "center" }}>...Loading</h1>
         </div>
@@ -66,8 +66,7 @@ export default function HistoryPage() {
             return <ListDesign item={elm} />;
           })}
         </div>
-      )} */}
-      <ListDesign />
+      )}
     </div>
   );
 }
