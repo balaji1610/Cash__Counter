@@ -4,6 +4,8 @@ import { useState } from "react";
 import { deleteApithunk } from "../features/cashcounter/ThunkApi";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import { useDispatch } from "react-redux";
+
+import Toast_comp from "../Reusable_compoents/Toast_comp";
 export default function ListDesign({ item }) {
   const dispatch = useDispatch();
   const { id, date } = item;
@@ -23,9 +25,20 @@ export default function ListDesign({ item }) {
     setOpen(false);
   };
 
-  const handleDeleteClick = async (deleteid) => {
+  //Toast
+  const [deleteToast, setDeleteToast] = useState(false);
+
+  const handleDeleteToast = () => {
+    setDeleteToast(false);
+  };
+
+  const handleDeleteClick = async (deleteid, e) => {
+    e.preventDefault();
+    setDeleteToast(true);
     const deleteItemsApi = await dispatch(deleteApithunk(deleteid));
+   
     dispatch(callUsereffect());
+
     console.log(deleteItemsApi, "deleteItemsApi");
   };
   return (
@@ -101,7 +114,7 @@ export default function ListDesign({ item }) {
                   open={open}
                   handleClose={handleCloseClick}
                   content="Are You To Want Delete This Item ?"
-                  btnclick={() => handleDeleteClick(id)}
+                  btnclick={(e) => handleDeleteClick(id, e)}
                   btnname="Delete"
                 />
               </div>
@@ -152,6 +165,21 @@ export default function ListDesign({ item }) {
           <Grid item xs={2}></Grid>
         </Grid>
       </div>
+      <Toast_comp
+        open={deleteToast}
+        onClose={handleDeleteToast}
+        anchorOrigin={{
+          horizontal: "right",
+          vertical: "bottom",
+        }}
+        style={{
+          background:
+            "linear-gradient(90deg, hsla(29, 92%, 70%, 1) 0%, hsla(0, 87%, 73%, 1) 100%)",
+          color: "#ffffff",
+          fontSize: "17px",
+        }}
+        content="Deleted successfully"
+      />
     </div>
   );
 }
