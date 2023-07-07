@@ -10,9 +10,11 @@ import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import Sorting from "../Containers/Sorting";
 import ListDesign from "../Containers/ListDesign";
 import CircularProgress from "@mui/material/CircularProgress";
-
-
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Mobile_ListDesign from "../Containers/Mobile_ListDesign";
 export default function HistoryPage() {
+  const mobile = useMediaQuery("(min-width:600px)");
+ 
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.cashCounter);
   const { users, lowtohigh, hightolow } = useSelector(
@@ -78,10 +80,17 @@ export default function HistoryPage() {
         <div>
           {" "}
           {getitem.map((elm) => {
-            return <ListDesign item={elm} />;
+            return mobile ? (
+              <ListDesign item={elm} />
+            ) : (
+              <Mobile_ListDesign item={elm} />
+            );
           })}
         </div>
       )}
     </div>
   );
+}
+{
+  /* <ListDesign item={elm} /> */
 }
