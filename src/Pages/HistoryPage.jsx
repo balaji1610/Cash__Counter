@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import Sorting from "../Containers/Sorting";
 import ListDesign from "../Containers/ListDesign";
+import CircularProgress from "@mui/material/CircularProgress";
 export default function HistoryPage() {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.cashCounter);
@@ -57,7 +58,19 @@ export default function HistoryPage() {
       </div>
       {loading ? (
         <div>
-          <h1 style={{ textAlign: "center" }}>...Loading</h1>
+          <h1 style={{ textAlign: "center" }}>
+            <CircularProgress />
+          </h1>
+          <h1 style={{ textAlign: "center" }}>
+            Loading{" "}
+            <span
+              style={{
+                color: "red",
+              }}
+            >
+              . . .
+            </span>
+          </h1>
         </div>
       ) : (
         <div>
