@@ -77,13 +77,16 @@ export default function Mobile_ListDesign({ item }) {
                   <div>
                     {" "}
                     <img
-                      width="42"
-                      height="42"
+                      width="18"
+                      height="18"
                       src="https://img.icons8.com/color/96/rupee--v1.png"
                       alt="rupee--v1"
                     />
+              
                   </div>
-                  <div>{sumoftotal.toLocaleString()}</div>
+                  <div>
+                    <h3>{sumoftotal.toLocaleString()}</h3>
+                  </div>
                 </div>
                 <div
                   onClick={handleModelOpen}
