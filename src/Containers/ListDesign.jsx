@@ -26,10 +26,10 @@ export default function ListDesign({ item }) {
                     />
                   </div>
                   <div>
-                    <h1>{Date}</h1>
+                    <h2>{Date}</h2>
                   </div>
                 </div>
-                <div className="date_layout">
+                <div className="time_layout">
                   <div>
                     <img
                       width="32"
@@ -39,19 +39,37 @@ export default function ListDesign({ item }) {
                     />
                   </div>
                   <div>
-                    <h1> {Time}</h1>
+                    <h2> {Time}</h2>
                   </div>
                 </div>
               </div>
               <div className="Total_sum_layout">
                 <div className="total_flex">
-                  <div>image</div>
-                  <div>{sumoftotal}</div>
+                  <div>
+                    {" "}
+                    <img
+                      width="60"
+                      height="60"
+                      src="https://img.icons8.com/color/96/rupee--v1.png"
+                      alt="rupee--v1"
+                    />
+                  </div>
+                  <div
+                    style={{
+                      width: "120px",
+                      padding: "30px",
+                    }}
+                  >
+                    <h1>{sumoftotal.toLocaleString()}</h1>
+                  </div>
                 </div>
                 <div className="Delete_flex">Delete</div>
               </div>
               <div className="Coins_Notes_layout">
-                <div className="date_layout">
+                <div
+                  className="notes_layout {
+"
+                >
                   <div>
                     {" "}
                     <img
@@ -65,7 +83,7 @@ export default function ListDesign({ item }) {
                     <h2>{notes}</h2>
                   </div>
                 </div>
-                <div className="date_layout">
+                <div className="coins_layout">
                   <div>
                     {" "}
                     <img
