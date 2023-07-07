@@ -5,7 +5,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Grid } from "@mui/material";
-export default function Toast_Comp({
+export default function Model_Comp({
   open,
   handleClose,
   title,

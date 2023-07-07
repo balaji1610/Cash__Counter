@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import Toast_Comp from "../Reusable_compoents/Toast_Comp";
+import Model_Comp from "../Reusable_compoents/Model_Comp";
 import { useState } from "react";
 import { deleteApithunk } from "../features/cashcounter/ThunkApi";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
@@ -97,7 +97,7 @@ export default function ListDesign({ item }) {
                     alt="filled-trash"
                   />
                 </div>
-                <Toast_Comp
+                <Model_Comp
                   open={open}
                   handleClose={handleCloseClick}
                   content="Are You To Want Delete This Item ?"
