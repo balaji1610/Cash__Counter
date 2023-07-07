@@ -4,7 +4,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-
+import { Grid } from "@mui/material";
 export default function Toast_Comp({
   open,
   handleClose,
@@ -38,12 +38,20 @@ export default function Toast_Comp({
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" color="error" onClick={btnclick}>
-            {btnname}
-          </Button>
-          <Button variant="contained" onClick={handleClose}>
-            Cancel
-          </Button>
+          <Grid container xs={12}>
+            <Grid item xs={3}></Grid>
+            <Grid item xs={3}>
+              <Button variant="contained" color="error" onClick={btnclick}>
+                {btnname}
+              </Button>
+            </Grid>
+            <Grid item xs={3}>
+              <Button variant="contained" onClick={handleClose}>
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item xs={3}></Grid>
+          </Grid>{" "}
         </DialogActions>
       </Dialog>
     </div>
