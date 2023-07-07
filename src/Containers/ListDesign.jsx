@@ -1,6 +1,11 @@
 import { Grid } from "@mui/material";
-
+import Toast_Comp from "../Reusable_compoents/Toast_Comp";
+import { useState } from "react";
+import { deleteApithunk } from "../features/cashcounter/ThunkApi";
+import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
+import { useDispatch } from "react-redux";
 export default function ListDesign({ item }) {
+  const dispatch = useDispatch();
   const { id, date } = item;
 
   const dataTimeSplit = date.split("at");
@@ -8,6 +13,21 @@ export default function ListDesign({ item }) {
   const Time = dataTimeSplit[1];
   const { sumoftotal, coins, notes } = item.total;
 
+  const [open, setOpen] = useState(false);
+
+  const handleModelOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCloseClick = () => {
+    setOpen(false);
+  };
+
+  const handleDeleteClick = async (deleteid) => {
+    const deleteItemsApi = await dispatch(deleteApithunk(deleteid));
+    dispatch(callUsereffect());
+    console.log(deleteItemsApi, "deleteItemsApi");
+  };
   return (
     <div>
       <div key={id} className="spacing">
@@ -63,7 +83,13 @@ export default function ListDesign({ item }) {
                     <h1>{sumoftotal.toLocaleString()}</h1>
                   </div>
                 </div>
-                <div className="Delete_flex">
+                <div
+                  onClick={handleModelOpen}
+                  className="Delete_flex"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
                   <img
                     width="28"
                     height="28"
@@ -71,6 +97,13 @@ export default function ListDesign({ item }) {
                     alt="filled-trash"
                   />
                 </div>
+                <Toast_Comp
+                  open={open}
+                  handleClose={handleCloseClick}
+                  content="Are You To Want Delete This Item ?"
+                  btnclick={() => handleDeleteClick(id)}
+                  btnname="Delete"
+                />
               </div>
               <div className="Coins_Notes_layout">
                 <div

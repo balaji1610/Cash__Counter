@@ -5,26 +5,45 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function Toast_Comp({ open, handleClose, title, content,btnname,btnclick }) {
+export default function Toast_Comp({
+  open,
+  handleClose,
+  title,
+  content,
+  btnname,
+  btnclick,
+}) {
   return (
     <div>
       <Dialog
         open={open}
+        fullWidth
+        maxWidth="sm"
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          <h1>{title}</h1>
+          <h3>{title}</h3>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <h1>{content}</h1>
+            <h2
+              style={{
+                textAlign: "center",
+              }}
+            >
+              {content}
+            </h2>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={btnclick}>{btnname}</Button>
+          <Button variant="contained" color="error" onClick={btnclick}>
+            {btnname}
+          </Button>
+          <Button variant="contained" onClick={handleClose}>
+            Cancel
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
