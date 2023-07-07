@@ -14,7 +14,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Mobile_ListDesign from "../Containers/Mobile_ListDesign";
 export default function HistoryPage() {
   const mobile = useMediaQuery("(min-width:600px)");
- 
+
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.cashCounter);
   const { users, lowtohigh, hightolow } = useSelector(
@@ -77,7 +77,13 @@ export default function HistoryPage() {
           </h1>
         </div>
       ) : (
-        <div>
+        <div
+          style={{
+            height: "60vh",
+            overflowY: "scroll",
+            marginTop: "50px",
+          }}
+        >
           {" "}
           {getitem.map((elm) => {
             return mobile ? (
