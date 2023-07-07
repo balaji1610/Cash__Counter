@@ -5,6 +5,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Grid } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 export default function Model_Comp({
   open,
   handleClose,
@@ -13,6 +14,7 @@ export default function Model_Comp({
   btnname,
   btnclick,
 }) {
+  const mobile = useMediaQuery("(min-width:600px)");
   return (
     <div>
       <Dialog
@@ -39,18 +41,18 @@ export default function Model_Comp({
         </DialogContent>
         <DialogActions>
           <Grid container xs={12}>
-            <Grid item xs={3}></Grid>
-            <Grid item xs={3}>
+            <Grid item xs={mobile ? 3 : 2}></Grid>
+            <Grid item xs={mobile ? 3 : 4}>
               <Button variant="contained" color="error" onClick={btnclick}>
                 {btnname}
               </Button>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={mobile ? 3 : 4}>
               <Button variant="contained" onClick={handleClose}>
                 Cancel
               </Button>
             </Grid>
-            <Grid item xs={3}></Grid>
+            <Grid item xs={mobile ? 3 : 2}></Grid>
           </Grid>{" "}
         </DialogActions>
       </Dialog>
