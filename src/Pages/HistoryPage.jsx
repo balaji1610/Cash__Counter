@@ -10,6 +10,8 @@ import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import Sorting from "../Containers/Sorting";
 import ListDesign from "../Containers/ListDesign";
 import CircularProgress from "@mui/material/CircularProgress";
+
+
 export default function HistoryPage() {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.cashCounter);

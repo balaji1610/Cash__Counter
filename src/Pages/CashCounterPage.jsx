@@ -24,8 +24,10 @@ import Coin_1 from "../assests/Images/Coins/Coin_1.jpg";
 
 import PayloadCurrentDate from "../Containers/PayloadCurrentDate";
 import Services from "../Services/ServicesAxios";
+//toast
 
-//
+import Toast_comp from "../Reusable_compoents/Toast_comp";
+
 import { useSelector, useDispatch } from "react-redux";
 import { callUsereffect } from "../features/cashcounter/CashCounterSlice";
 import { postApithunk } from "../features/cashcounter/ThunkApi";
@@ -252,6 +254,12 @@ export default function CashCounterPage() {
       PostSendPayload();
     }
   }, [counter]);
+
+  const [toast, setToast] = useState(false);
+
+  const handleToastClose = () => {
+    setToast(false);
+  };
   //--------------------------->HandleSubmit<-----------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -363,6 +371,7 @@ export default function CashCounterPage() {
 
     // console.log(PostData, "PostData");
     // console.log(nestedObjct, "nestedObjct");
+    setToast(true);
   };
 
   //--------------------------->Numofwords<------------------
@@ -748,6 +757,26 @@ export default function CashCounterPage() {
             </Grid>
           </Grid>
         </div>
+      </div>
+
+      <div>
+        {" "}
+        <Toast_comp
+          open={toast}
+          onClose={handleToastClose}
+          anchorOrigin={{
+            horizontal: "right",
+            vertical: "bottom",
+          }}
+          // alertIcon={<ThumbUpAltRoundedIcon />}
+          style={{
+            background:
+              "linear-gradient(90deg, hsla(61, 91%, 54%, 1) 0%, hsla(95, 98%, 41%, 1) 100%)",
+            color: "black",
+            fontSize: "17px",
+          }}
+          content="Sucessfully Save To History"
+        />
       </div>
     </div>
   );
