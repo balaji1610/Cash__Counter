@@ -48,8 +48,8 @@ export default function ListDesign({ item }) {
                   <div>
                     {" "}
                     <img
-                      width="60"
-                      height="60"
+                      width="42"
+                      height="42"
                       src="https://img.icons8.com/color/96/rupee--v1.png"
                       alt="rupee--v1"
                     />
@@ -63,7 +63,14 @@ export default function ListDesign({ item }) {
                     <h1>{sumoftotal.toLocaleString()}</h1>
                   </div>
                 </div>
-                <div className="Delete_flex">Delete</div>
+                <div className="Delete_flex">
+                  <img
+                    width="28"
+                    height="28"
+                    src="https://img.icons8.com/plasticine/100/filled-trash.png"
+                    alt="filled-trash"
+                  />
+                </div>
               </div>
               <div className="Coins_Notes_layout">
                 <div
@@ -79,8 +86,12 @@ export default function ListDesign({ item }) {
                       alt="money-bag-rupee"
                     />
                   </div>
-                  <div>
-                    <h2>{notes}</h2>
+                  <div
+                    style={{
+                      width: "85px",
+                    }}
+                  >
+                    <h2>{notes.toLocaleString()}</h2>
                   </div>
                 </div>
                 <div className="coins_layout">
@@ -93,8 +104,12 @@ export default function ListDesign({ item }) {
                       alt="coins"
                     />
                   </div>
-                  <div>
-                    <h2>{coins}</h2>
+                  <div
+                    style={{
+                      width: "85px",
+                    }}
+                  >
+                    <h2>{coins.toLocaleString()}</h2>
                   </div>
                 </div>
               </div>
