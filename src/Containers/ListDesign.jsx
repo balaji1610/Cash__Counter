@@ -8,7 +8,33 @@ export default function ListDesign({ item }) {
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
             <div className="Parent_ListLayout_Design">
-              Parent_ListLayout_Design
+              <div className="Date_Time_layout">
+                <div className="date_layout">
+                  <div>image</div>
+                  <div>Date</div>
+                </div>
+                <div className="date_layout">
+                  <div>image</div>
+                  <div>Time</div>
+                </div>
+              </div>
+              <div className="Total_sum_layout">
+                <div className="total_flex">
+                  <div>image</div>
+                  <div>Amount</div>
+                </div>
+                <div className="Delete_flex">Delete</div>
+              </div>
+              <div className="Coins_Notes_layout">
+                <div className="date_layout">
+                  <div>image</div>
+                  <div>Date</div>
+                </div>
+                <div className="date_layout">
+                  <div>image</div>
+                  <div>Time</div>
+                </div>
+              </div>
             </div>
           </Grid>
 
