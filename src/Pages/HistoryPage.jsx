@@ -61,7 +61,11 @@ export default function HistoryPage() {
         <Sorting handleChange={handleChange} />
       </div>
       {loading ? (
-        <div>
+        <div
+          style={{
+            height: "60vh",
+          }}
+        >
           <h1 style={{ textAlign: "center" }}>
             <CircularProgress />
           </h1>
@@ -79,7 +83,7 @@ export default function HistoryPage() {
       ) : (
         <div
           style={{
-            height: "60vh",
+            height: "80vh",
             overflowY: "scroll",
             marginTop: "50px",
           }}
