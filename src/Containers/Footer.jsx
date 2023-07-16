@@ -62,7 +62,7 @@ export default function Footer() {
       <div style={buildBy}>
         <div>
           {" "}
-          {currentYear}&nbsp; &copy; &nbsp;Build By{" "}
+          {currentYear}&nbsp; &copy; &nbsp;Developed by{" "}
           <span style={balaji}>
             <a
               href="https://balajicv.onrender.com"
