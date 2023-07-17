@@ -1,3 +1,12 @@
+Live Demo : https://master-cash-counter.onrender.com
+
+Project description
+
+1. The Cash Counter Application is designed to assist cashiers or store owners in managing cash transactions and maintaining accurate notes and coins to store the history page
+2. Target the history page by sorting by high to low, low to high
+3. Retrieve data from the Axios API
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
