@@ -36,7 +36,7 @@ export default function ListDesign({ item }) {
     e.preventDefault();
     setDeleteToast(true);
     const deleteItemsApi = await dispatch(deleteApithunk(deleteid));
-   
+
     dispatch(callUsereffect());
 
     console.log(deleteItemsApi, "deleteItemsApi");
@@ -113,7 +113,7 @@ export default function ListDesign({ item }) {
                 <Model_Comp
                   open={open}
                   handleClose={handleCloseClick}
-                  content="Are You To Want Delete This Item ?"
+                  content="Are You Want To Delete This Item ?"
                   btnclick={(e) => handleDeleteClick(id, e)}
                   btnname="Delete"
                 />
