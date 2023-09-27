@@ -58,7 +58,7 @@ export default function HistoryPage() {
       {/* <button onClick={handleDeleteClick}>Delete</button> */}
 
       <div>
-        <Sorting handleChange={handleChange} />
+        <Sorting handleChange={handleChange} value={showHistoryPage} />
       </div>
       {loading ? (
         <div
