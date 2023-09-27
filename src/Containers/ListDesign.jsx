@@ -59,7 +59,7 @@ export default function ListDesign({ item }) {
                     />
                   </div>
                   <div>
-                    <h2>{Date}</h2>
+                    <h3>{Date}</h3>
                   </div>
                 </div>
                 <div className="time_layout">
