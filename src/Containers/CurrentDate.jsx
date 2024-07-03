@@ -10,7 +10,7 @@ export default function CurrentDate() {
   const currentData = datatime.split(",");
 
   const currentday = currentData[0];
-  const currentDatemonth = currentData[1].split(" ").join(",");
+  const currentDatemonth = currentData[1]?.split(" ").join(",");
 
   return (
     <div style={{ color: "#212121" }}>
